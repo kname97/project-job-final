@@ -18,5 +18,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/login','admin\adminController@getLoginAdmin');
     Route::post('/login', 'admin\adminController@postLoginAdmin')->name('adminLogin');
     Route::get('/', 'admin\adminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
-    Route::get('/demo','admin\defineAdminController@getDemo');
+    Route::get('/manage-accounts','admin\defineAdminController@getAccounts');
+    Route::get('/manage-applies','admin\defineAdminController@getApplies');
+    Route::get('/manage-reviews','admin\defineAdminController@getReviews');
+    Route::get('/manage-ranks','admin\defineAdminController@getRanks');
 });

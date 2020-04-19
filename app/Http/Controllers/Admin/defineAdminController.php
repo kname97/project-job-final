@@ -11,8 +11,20 @@ class defineAdminController extends Controller
    {
        $this->middleware('checkAdmin');
    }
-   function getDemo()
+   function getAccounts()
    {
-       return view('admin.pagesAdmin.demoAdmin');
+       return view('admin.pagesAdmin.accountsAdmin');
+   }
+   function getApplies()
+   {
+       return view('admin.pagesAdmin.appliesAdmin');
+   }
+   function getReviews()
+   {
+       return view('admin.pagesAdmin.reviewsAdmin');
+   }
+   function getRanks()
+   {
+       return view('admin.pagesAdmin.ranksAdmin');
    }
 }
