@@ -51,4 +51,11 @@ class adminController extends Controller
     {
         return view('admin.indexAdmin');
     }
+
+    function logoutAdmin(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        return redirect(route('getadminLogin'));
+    }
 }

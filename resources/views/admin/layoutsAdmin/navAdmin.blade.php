@@ -18,7 +18,7 @@
                         Thông tin tài khoản 
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{ url('/admin/logout') }}">
                     <i class="fas fa-sign-out-alt"></i>
                     Đăng xuất
                 </a>

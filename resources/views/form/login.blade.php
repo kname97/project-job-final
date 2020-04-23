@@ -1,71 +1,65 @@
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-    <div id="form-login" class="modal-dialog" role="document">
+    <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModal">{{ __('Login') }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
+                <div class="modal-header">
+                    <h5 class="modal-title "> <i class="fas fa-sign-in-alt"></i> Đăng nhập</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+
+                </div>
+                    {{-- <div class="login-social">
+                        <button type="button" class="loginBtn loginBtn--facebook disabled">
+                          <a href="#" class="text-light">Đăng nhập với Facebook</a>
+                        </button>
+                        <button type="button" class="loginBtn loginBtn--google disabled">
+                          <a href="#" class="text-light">Đăng nhập với Google </a>
+                        </button>
+                        <span>Hoặc</span>
+                         <hr>
+                    </div> --}}
             <div class="modal-body">
-                <form method="POST" action="">
+                <div class="container-fluid">
+                    <div class="form-group">
+                        <div class="alert alert-danger text-center error errorLogin" style="display: none"  >
+
+                        </div>
+                    </div>
+                  <form class="form" role="form" id="formLogin" novalidate="" method="post">
                     @csrf
+                    <div class="form-group">
+                    <a href="#" class="float-right">Chưa có tài khoản ?</a>
+                        <label for="uname1">Tên tài khoản</label>
+                        <input type="text" class="form-control " name="email" id="email" required="">
 
-                    <div class="form-group row">
-                        
+                        <small id="helpId" class="form-text text-danger error errorEmail">
 
-                        <div class="col-md-12">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        </small>
 
-                            {{-- @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror --}}
-                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" class="form-control " name='password' id="password" required="">
+
+                        <small id="helpId" class="form-text text-danger error errorPassword">
+
+                        </small>
+
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="remember" name="remember">
+                      <label class="custom-control-label" for="remember">Ghi nhớ</label>
+                    </div>
+                    <div class="form-group modal-footer" >
+                        <button type="submit" class="btn btn-info" id="loginSubmit">Đăng nhập</button>
+                        <button type="button" class="btn btn-outline-secondary " data-dismiss="modal" aria-hidden="true">Hủy bỏ</button>
+
                     </div>
 
-                    <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                            {{-- @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror --}}
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Login') }}
-                            </button>
-
-                            {{-- @if (Route::has('password.request')) --}}
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            {{-- @endif --}}
-                        </div>
-                    </div>
                 </form>
-            </div>
+                </div>
+              </div>
         </div>
     </div>
 </div>
