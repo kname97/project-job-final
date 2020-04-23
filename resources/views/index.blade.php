@@ -1,60 +1,257 @@
 @extends('layouts.master')
 @section('title','Chào mừng bạn đến với chúng tôi')
 @section('content')
-<div id="themeSlider" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
-        <li data-target="#themeSlider" data-slide-to="1"></li>
-        <li data-target="#themeSlider" data-slide-to="2"></li>
-    </ol>
-
-    <div class="carousel-inner">
-        <div class="item active">
-            <div class="imgOverlay"></div>
-            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDkwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzkwMHg1MDAvYXV0by8jNzc3OiM1NTUvdGV4dDpGaXJzdCBzbGlkZQpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE1NmQ2MzEwNTczIHRleHQgeyBmaWxsOiM1NTU7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6NDVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTU2ZDYzMTA1NzMiPjxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjNzc3Ii8+PGc+PHRleHQgeD0iMzA4LjI5Njg3NSIgeT0iMjcwLjE3OTY4NzUiPkZpcnN0IHNsaWRlPC90ZXh0PjwvZz48L2c+PC9zdmc+" alt="First slide">
-            <div class="carousel-caption">
-                <h3>First slide</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-        </div>
-        <div class="item">
-        	<div class="imgOverlay"></div>
-            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDkwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzkwMHg1MDAvYXV0by8jNjY2OiM0NDQvdGV4dDpTZWNvbmQgc2xpZGUKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTZkNjMxMjdlZiB0ZXh0IHsgZmlsbDojNDQ0O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjQ1cHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NmQ2MzEyN2VmIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiIvPjxnPjx0ZXh0IHg9IjI2NC45NTMxMjUiIHk9IjI3MC4xNzk2ODc1Ij5TZWNvbmQgc2xpZGU8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="Second slide">
-            <div class="carousel-caption">
-                <h3>Second slide</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-        </div>
-        <div class="item">
-        	<div class="imgOverlay"></div>
-            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDkwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzkwMHg1MDAvYXV0by8jNTU1OiMzMzMvdGV4dDpUaGlyZCBzbGlkZQpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE1NmQ2MzEzODdjIHRleHQgeyBmaWxsOiMzMzM7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6NDVwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTU2ZDYzMTM4N2MiPjxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjNTU1Ii8+PGc+PHRleHQgeD0iMjk4LjMyMDMxMjUiIHk9IjI3MC4xNzk2ODc1Ij5UaGlyZCBzbGlkZTwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="Third slide">
-            <div class="carousel-caption">
-                <h3>Third slide</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-        </div>
+    <div class="back-ground-index">
     </div>
-
-    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
-        <span class="fa fa-chevron-left"></span>
-    </a>
-    <a class="right carousel-control"href="#themeSlider" data-slide="next">
-        <span class="fa fa-chevron-right"></span>
-    </a>
-
-    <div class="main-text hidden-xs hidden-sm">
-        <div class="col-md-12 text-center">
-            <h1>Static Headline And Content</h1>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-            <div class="clearfix"></div>
-            <div class="carousel-btns">
-                <a class="btn btn-md btn-default" href="">Login</a>
-                <a class="btn btn-md btn-default" href="">Registration</a>
-            </div>
-        </div>
-    </div>
-</div>
     <div class="container">
-        <h3> vãi cả loz</h3>
+        <section class="top-jobs" id="feature-jobs">
+            <div class="row" id="title-toper">
+                <div class=" col-12 text-center">
+                    <h2>Các tin tuyển dụng</h2>
+                </div>
+                <div class="col-12 text-bold text-center">
+                    <h2>
+                        Tin tuyển dụng <span class="txt-primary">mới nhất</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="feature-jobs">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="holder.js/100x180/" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">Title</h4>
+                                <p class="card-text">Text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        {{-- feature employer --}}
+        <section id="feature-employee">
+            <div class="row" id="title-toper">
+                <div class=" col-12 text-center">
+                    <h2>Nhà tuyển dụng tiêu biểu</h2>
+                </div>
+                <div class="col-12 text-bold text-center">
+                    <h2>
+                        Các công ty <span class="txt-primary">Hàng đầu</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+        <section id="feature-career">
+            <div class="row" id="title-toper">
+                <div class=" col-12 text-center">
+
+                    <h2>Việc làm theo ngành nghề</h2>
+                </div>
+                <div class="col-12 text-bold text-center">
+                    <h2>
+                        Nghành nghề <span class="txt-primary">tuyển dụng</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card text-white bg-primary">
+                      <img class="card-img-top" src="holder.js/100px180/" alt="">
+                      <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 @endsection

@@ -1,5 +1,30 @@
 #form-login{
     margin: 150px auto ;
 }
-
+section{
+    margin: 20px;
+}
+/* index css*/
+.back-ground-index{
+    height: 450px;
+    width: 100%;
+    background-color: #0672ba;
+}
+#title-toper{
+    margin-bottom: 20px;
+}
+#new-jobs{
+    margin: 20px 0;
+}
+.show-more-jobs{
+   text-align: end;
+   margin: 10px 0;;
+}
+#feature-jobs .row .col-4, #feature-career .row .col-3, #feature-employee .row .col-4{
+    margin-bottom: 30px;
+}
+.txt-primary{
+    color: #0672ba;
+    text-transform: uppercase;
+}
 

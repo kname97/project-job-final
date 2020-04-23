@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <a class="navbar-brand" href="#">JOBs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,9 +20,19 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal"> 
-                    Đăng nhập 
-                </a>     
+                <a href="#" class="nav-link" >
+                   Tuyển dụng
+                </a>
+            </span>
+            <span class="navbar-text">
+                <a href="#" class="nav-link" >
+                    Việc làm
+                </a>
+            </span>
+            <span class="navbar-text">
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">
+                    Đăng nhập
+                </a>
             </span>
         </div>
     </nav>
