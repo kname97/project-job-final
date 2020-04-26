@@ -10,7 +10,7 @@ section{
     width: 100%;
     background-color: #0672ba;
 }
-#title-toper{
+#title-topper{
     margin-bottom: 20px;
 }
 #new-jobs{
@@ -27,4 +27,14 @@ section{
     color: #0672ba;
     text-transform: uppercase;
 }
+.back-ground-index{
+    position: relative;
+}
+ #form-find-jobs{
+     padding-top: 400px;
+     position: center;
+     width: 100%;
+     bottom: 0;
+
+ }
 
