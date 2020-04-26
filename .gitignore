@@ -10,3 +10,16 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.idea/
+.idea/.gitignore
+.idea/codeStyles/
+.idea/dictionaries/
+.idea/inspectionProfiles/
+.idea/laravel-plugin.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/php.xml
+.idea/project-job-final.iml
+.idea/symfony2.xml
+.idea/vcs.xml
+
