@@ -1,40 +1,125 @@
-#form-login{
-    margin: 150px auto ;
+#form-login {
+    margin: 150px auto;
 }
-section{
+
+section {
     margin: 20px;
 }
+
 /* index css*/
-.back-ground-index{
+.back-ground-index {
     height: 450px;
     width: 100%;
     background-color: #0672ba;
 }
-#title-topper{
+
+#title-topper {
     margin-bottom: 20px;
 }
-#new-jobs{
+
+#new-jobs {
     margin: 20px 0;
 }
-.show-more-jobs{
-   text-align: end;
-   margin: 10px 0;;
+
+.show-more-jobs {
+    text-align: end;
+    margin: 10px 0;;
 }
-#feature-jobs .row .col-4, #feature-career .row .col-3, #feature-employee .row .col-4{
+
+#feature-jobs .row .col-4, #feature-career .row .col-3, #feature-employee .row .col-4 {
     margin-bottom: 30px;
 }
-.txt-primary{
+
+.txt-primary {
     color: #0672ba;
     text-transform: uppercase;
 }
-.back-ground-index{
+
+.back-ground-index {
     position: relative;
 }
- #form-find-jobs{
-     padding-top: 400px;
-     position: center;
-     width: 100%;
-     bottom: 0;
 
- }
+#form-find-jobs {
+    padding-top: 400px;
+    position: center;
+    width: 100%;
+    bottom: 0;
 
+}
+
+.profile-left {
+    height: auto;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.big-box-left
+{
+    padding: 15px 15px;
+}
+.box-left
+{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: #495057 1px solid;
+}
+.box-left:last-child
+{
+    border-bottom:0px;
+    padding-bottom: 0px;
+}
+.box-left:first-child
+{
+    padding-top: 0px;
+}
+.box-left-title
+{
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+.box-left-link
+{
+    background: #cfd1d39c;
+    color: black;
+    border-radius: 2px;
+
+}
+
+.box-left-link a
+{
+    text-decoration: none;
+    color: rgb(54, 53, 53);
+    font-size: 14px !important;
+    line-height: 20px;
+    text-transform: capitalize;
+
+}
+.box-left-link a:hover, .actived
+{
+    color: rgb(124, 119, 119);
+    background: #cfd1d39c;
+}
+
+.background-img{
+    background: #1d68a7;
+    height: 100px;
+    width: auto;
+}
+.avatar-img{
+    background: #2fa360;
+    height: 100px;
+    width: auto;
+}

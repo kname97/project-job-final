@@ -14,6 +14,9 @@ Auth::routes();
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/trang-ca-nhan',function (){
+    return view('employer.profileDetail');
+});
 Route::post('/',"userController@loginUser")->name('loginUser');
 Route::group(['prefix' => 'admin'], function () {
     Route::get ('/login'            ,'admin\adminController@getLoginAdmin')->name('getadminLogin');
