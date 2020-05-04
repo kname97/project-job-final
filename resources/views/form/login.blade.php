@@ -22,16 +22,16 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="form-group">
-                        <div class="alert alert-danger text-center error errorLogin" style="display: none"  >
+                        <div class="alert alert-danger text-center error errorLogin"  >
 
                         </div>
                     </div>
                   <form class="form" role="form" id="formLogin" novalidate="" method="post">
                     @csrf
                     <div class="form-group">
-                    <a href="#" class="float-right">Chưa có tài khoản ?</a>
+                    <a href="{{url('/dang-ky')}}" class="float-right">Chưa có tài khoản ?</a>
                         <label for="uname1">Tên tài khoản</label>
-                        <input type="text" class="form-control " name="email" id="email" required="">
+                        <input type="text" class="form-control " name="email" id="txtemail" required="">
 
                         <small id="helpId" class="form-text text-danger error errorEmail">
 
@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label>Mật khẩu</label>
-                        <input type="password" class="form-control " name='password' id="password" required="">
+                        <input type="password" class="form-control " name='password' id="txtpassword" required="">
 
                         <small id="helpId" class="form-text text-danger error errorPassword">
 

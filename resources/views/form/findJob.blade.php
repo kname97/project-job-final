@@ -1,6 +1,6 @@
 <div class="container">
     <form id="form-find-jobs">
-        <div class="row">
+        <div class="row m-0">
             <div class="col-6">
                 <input class="form-control" placeholder="Nghành nghề">
             </div>

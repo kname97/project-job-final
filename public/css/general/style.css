@@ -123,3 +123,16 @@ section {
     height: 100px;
     width: auto;
 }
+.avatar-header{
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.form-child
+{
+    padding-bottom: 8px;
+}
+.errorLogin{
+    display: none;
+}

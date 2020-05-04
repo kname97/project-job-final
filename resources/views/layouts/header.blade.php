@@ -19,21 +19,58 @@
                     </form>
                 </li>
             </ul>
-            <span class="navbar-text">
-                <a href="#" class="nav-link" >
-                   Tuyển dụng
-                </a>
-            </span>
-            <span class="navbar-text">
-                <a href="#" class="nav-link" >
-                    Việc làm
-                </a>
-            </span>
-            <span class="navbar-text">
+            @if(Auth::check())
+                @if(Auth::user()->level == 1)
+                    <span class="navbar-text">
+                        <a href="#" class="nav-link" >
+                            Việc làm
+                        </a>
+                    </span>
+
+                @elseif(Auth::user()->level == 2)
+                    <span class="navbar-text">
+                        <a href="#" class="nav-link" >
+                           Tuyển dụng
+                        </a>
+                    </span>
+
+                @endif
+{{--                    <li class="nav-item dropdown">--}}
+                        <a class="nav-link text-capitalize dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVudfcgyMsEWu1ibVhe1TV5fgIURljQMDslLFN4HyEwNSWqdnm&usqp=CAU" alt="Avatar" class="avatar-header">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-user-circle"></i>
+                                Thông tin tài khoản
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url('/dang-xuat') }}">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+{{--                      </li>--}}
+                @else
+                <span class="navbar-text">
+                        <a href="#" class="nav-link" >
+                            Việc làm
+                        </a>
+                    </span>
+                <span class="navbar-text">
+                        <a href="#" class="nav-link" >
+                           Tuyển dụng
+                        </a>
+                    </span>
+                <span class="navbar-text">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">
                     Đăng nhập
                 </a>
             </span>
+            @endif
+
+
+
         </div>
     </nav>
 </header>

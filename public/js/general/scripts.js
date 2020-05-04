@@ -2,6 +2,8 @@ $(document).ready(function () {
 
 $("#loginSubmit").click(function(e){
     e.preventDefault();
+    const txtemail =  $('#txtemail').val();
+    const txtpassword = $('#txtpassword').val();
     $.ajaxSetup({
         headers : {
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content'),
@@ -12,37 +14,51 @@ $("#loginSubmit").click(function(e){
         type : "post",
         url  : "/",
         data : {
-            'email'    : $('#email').val(),
-            'password' : $('#password').val()
+            'email'    : txtemail,
+            'password' :  txtpassword
         },
         success: function (data) {
-            // console.log(data);
-			if (data.error == true) {
-                $('.error').hide();
-                if (data.message.email != undefined) {
-                    $('.errorEmail').show().text(data.message.email[0]);
-                    $('#email').addClass('is-invalid');
+            $('#loginSubmit').html('Đăng nhập');
+			if (data.status === 'error') {
+                    $('.errorEmail').show().text(data.message.email);
+                    $('#txtemail').addClass('is-invalid');
+                    $('.errorPassword').show().text(data.message.password);
+                    $('#txtpassword').addClass('is-invalid');
+                if (data.false == true) {
+                    $('.errorLogin').show().text(data.message);
                 }
-                if (data.message.password != undefined) {
-                    $('.errorPassword').show().text(data.message.password[0]);
-                    $('#password').addClass('is-invalid');
+                if(txtemail.length > 0){
+                    $('.errorEmail').hide();
+                    $('#txtemail').removeClass('is-invalid');
+                    // $('.errorLogin').hide();
                 }
-                if (data.message.errorlogin != undefined) {
-                    $('.errorLogin').show().text(data.message.errorlogin[0]);
+                if (txtpassword.length > 0){
+                    $('.errorPassword').hide();
+                    $('#txtpassword').removeClass('is-invalid');
+                    // $('.errorLogin').hide();
                 }
-            }
-            else {
-                // $('#email').removeClass('is-invalid');
-                // $('#password').removeClass('is-invalid');
+			}
+            // }
+            else{
+                // console.log(data);
+                // location.assign(data.html);
+                // $('.errorLogin').removeClass('alert-danger ');
+                // $('.errorLogin').removeClass('text-danger');
+                // $('.errorLogin').addClass('alert-success ');
+                // $('.errorLogin').addClass('text-success');
+                $('.errorLogin').show().text(data.message);
 
-                location.assign(data.html);
-                // location.reload();
+                toastr.success(' ', 'đăng nhập thành cônng', {timeOut: 3000, positionClass: 'wrapper'});
+                    // location.reload();
                 // location.href(data.html);
-	            // toastr.success(' ', 'đăng nhập thành cônng', {timeOut: 3000, positionClass: 'wrapper'});
-			    // window.location.href = "http://127.0.0.1:8000/"
+
+			    // window.location.href = "http://127.0.0.1:8000/";
 			}
 
-        }
+        },
+        // error: function (data) {
+        //     console.log(data);
+        // }
     });
 
 });

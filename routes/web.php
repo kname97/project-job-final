@@ -11,20 +11,28 @@
 |
 */
 Auth::routes();
-Route::get('/', function () {
-    return view('index');
-});
+
 Route::get('/trang-ca-nhan',function (){
     return view('employer.profileDetail');
 });
-Route::post('/',"userController@loginUser")->name('loginUser');
+Route::get('/', 'userController@getloginUser');
+Route::post('/',"userController@postloginUser")->name('loginUser');
+Route::get('dang-ky','userController@getRegisterUser');
+Route::get('/dang-xuat', 'userController@logoutUser');
+
+// admin
 Route::group(['prefix' => 'admin'], function () {
     Route::get ('/login'            ,'admin\adminController@getLoginAdmin')->name('getadminLogin');
-    Route::post('/login'            , 'admin\adminController@postLoginAdmin')->name('adminLogin');
+    Route::post('/login'            ,'admin\adminController@postLoginAdmin')->name('adminLogin');
     Route::get ('/logout'           ,'admin\adminController@logoutAdmin')->name('adminLogout');
     Route::get ('/'                 ,'admin\adminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
     Route::get ('/manage-accounts'  ,'admin\defineAdminController@getAccounts');
     Route::get ('/manage-applies'   ,'admin\defineAdminController@getApplies');
     Route::get ('/manage-reviews'   ,'admin\defineAdminController@getReviews');
     Route::get ('/manage-ranks'     ,'admin\defineAdminController@getRanks');
+});
+
+// employer
+Route::group(['prefix'=>'thong-tin-ca-nhan'], function (){
+    Route::get('/{username}','userController@getProfiledetail')->name('getProfileDetail');
 });
