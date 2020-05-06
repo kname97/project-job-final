@@ -112,14 +112,29 @@ section {
     color: rgb(124, 119, 119);
     background: #cfd1d39c;
 }
+.profile-img #change-image-proifile{
 
+    width: auto;
+    height: 300px;
+
+}
 .background-img{
-    background: #1d68a7;
-    height: 100px;
+    height: 200px;
     width: auto;
 }
+.background-img img{
+    width: 100%;
+    height: 200px;
+}
 .avatar-img{
-    background: #2fa360;
+    position: relative;
+    height: 80px;
+    width: auto;
+}
+.avatar-img img{
+    position: absolute;
+    top: -30px;
+    left: 45%;
     height: 100px;
     width: auto;
 }
@@ -135,4 +150,7 @@ section {
 }
 .errorLogin{
     display: none;
+}
+.change-content-click{
+    border-left: 1px solid #1b1e21;
 }
