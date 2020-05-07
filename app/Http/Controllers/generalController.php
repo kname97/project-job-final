@@ -10,5 +10,7 @@ class generalController extends Controller
     {
         $this->middleware('guest');
     }
-
+    function getDemo(){
+        return view('generalView.profileDetail');
+    }
 }

@@ -19,6 +19,7 @@ Route::get('/', 'userController@getloginUser');
 Route::post('/',"userController@postloginUser")->name('loginUser');
 Route::get('dang-ky','userController@getRegisterUser');
 Route::get('/dang-xuat', 'userController@logoutUser');
+Route::get('/demo', 'generalController@getDemo');
 
 // admin
 Route::group(['prefix' => 'admin'], function () {
