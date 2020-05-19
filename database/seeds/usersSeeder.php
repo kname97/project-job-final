@@ -13,12 +13,11 @@ class usersSeeder extends Seeder
     {
         $data = [
             [
-               
                 'username' =>"admin",
                 'email'    => 'admin@gmail.com',
                 'password' => bcrypt('123456'),
                 'level'    => '0',
-                
+
             ],
         ];
         DB::table('users')->insert($data);
