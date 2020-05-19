@@ -32,7 +32,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get ('/manage-reviews'   ,'admin\defineAdminController@getReviews');
     Route::get ('/manage-ranks'     ,'admin\defineAdminController@getRanks');
 });
-
+//employer
+Route::group(['prefix'=>'nha-tuyen-dung'], function (){
+    Route::get('/dang-tin-tuyen-dung','Employer\employerController@getViewPostJob')->name('getPostJob');
+});
 // employer
 Route::group(['prefix'=>'thong-tin-ca-nhan'], function (){
     Route::get('/{username}','userController@getProfiledetail')->name('getProfileDetail');
