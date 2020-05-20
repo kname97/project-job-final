@@ -21,6 +21,9 @@ class CreateJobsTable extends Migration
             $table->string('minsalary');
             $table->string('maxsalary');
             $table->boolean(' negotiable');
+            $table->integer('amount');
+            $table->string('position');
+            $table->integer('exp');
             $table->date('startdate');
             $table->string('contact');
             $table->string('email');

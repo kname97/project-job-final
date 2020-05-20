@@ -2,18 +2,18 @@
 @section('title','Trang đăng tin tuyển dụng')
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
+        <div class="row justify-content-center content-post-jobs ">
+            <div class="col-12 ">
                 <div class="card px-5 pt-5">
-                    <h2 id="heading">Sign Up Your User Account</h2>
+                    <h2 id="heading">Đăng tin tuyển dụng</h2>
                     <form id="msform">
                         <!-- progressbar -->
-                        <ul id="progressbar">
-                            <li class="active" id="account"><strong>Thông tin cơ bản</strong></li>
-                            <li id="personal"><strong>Personal</strong></li>
-                            <li id="payment"><strong>Image</strong></li>
-                            <li id="confirm"><strong>Finish</strong></li>
-                        </ul>
+                        <div id="progressbar">
+                            <li class="active" id="basic"><strong>Thông tin cơ bản</strong></li>
+                            <li id="detail"><strong>Nội dung chi tiết</strong></li>
+                            <li id="company"><strong>Thông tin liên hệ</strong></li>
+                            <li id="confirm"><strong>Hoàng thành</strong></li>
+                        </div>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                                  aria-valuemin="0" aria-valuemax="100"></div>
@@ -26,13 +26,13 @@
                                         <h2 class="fs-title">Thông tin cơ bản</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Bước 1 - 3</h2>
+                                        <h2 class="steps">Bước 1 - 1</h2>
                                     </div>
                                 </div>
                                 <label class="fieldlabels">Tiêu đề: *</label>
                                 <input type="text" name="title-job" id="title-job"
                                        placeholder="Tiêu đề đơn tuyển dụng"/>
-                                <label class="fieldlabels">trực thuộc: *</label>
+                                <label class="fieldlabels">Trực thuộc: *</label>
                                 <div class="input-group mb-3">
                                     <select class="custom-select" id="inputGroupSelect01">
                                         <option selected>Choose...</option>
@@ -55,52 +55,68 @@
                                         <h2 class="fs-title">Thông tin chi tiết:</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Bước 2 - 3</h2>
+                                        <h2 class="steps">Bước 2 - 4</h2>
                                     </div>
                                 </div>
-                                <label class="fieldlabels">First Name: *</label> <input type="text" name="fname"
-                                                                                        placeholder="First Name"/>
-                                <label class="fieldlabels">Last Name: *</label> <input type="text" name="lname"
-                                                                                       placeholder="Last Name"/> <label
-                                    class="fieldlabels">Contact No.: *</label> <input type="text" name="phno"
-                                                                                      placeholder="Contact No."/> <label
-                                    class="fieldlabels">Alternate Contact No.: *</label> <input type="text"
-                                                                                                name="phno_2"
-                                                                                                placeholder="Alternate Contact No."/>
+                                <label class="fieldlabels">Loại công việc : *</label>
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect01" >
+                                        <option selected>Choose...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <label class="fieldlabels"> Lương tối thiểu *:</label>
+                                        <input class="form-control " type="number" name="minsalary">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fieldlabels mx-sm-5"> Lương tối đa *:</label>
+                                        <input class="form-control mx-sm-5" type="number" name="maxsalary">
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="negotiable">
+                                        <label class="custom-control-label" for="negotiable">Thỏa thuận</label>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">Ngày bắt đầu : *</label>
+                                <input type="text" name="companyname" />
+                                <label class="fieldlabels">Số lượng cần tuyển: *</label>
+                                <input type="number" name="number-employee" />
+                                <label class="fieldlabels">Chức vụ: *</label>
+                                <input type="text" name="position" placeholder="Tên chức vụ"/>
+                                <label class="fieldlabels">Yêu cầu kinh nghiệm: *</label>
+                                <input type="number" name="exp"/>
                             </div>
-                            <input type="button" name="next" class="next action-button" value="Next"/> <input
-                                type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="button" name="next" class="next action-button" value="Next"/>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="fs-title">Image Upload:</h2>
+                                        <h2 class="fs-title">Thông tin liên hệ :</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 3 - 4</h2>
+                                        <h2 class="steps">Bước 3 - 4</h2>
                                     </div>
                                 </div>
-                                <label class="fieldlabels">Upload Your Photo:</label> <input type="file" name="pic"
-                                                                                             accept="image/*"> <label
-                                    class="fieldlabels">Upload Signature Photo:</label> <input type="file" name="pic"
-                                                                                               accept="image/*">
+                                <label class="fieldlabels">Địa chỉ : *</label>
+                                <input type="text" name="address" />
+                                <label class="fieldlabels">Email: *</label>
+                                <input type="number" name="email" />
+                                <label class="fieldlabels">Số điện thoại: *</label>
+                                <input type="number" name="phone"/>
                             </div>
                             <input type="button" name="next" class="next action-button" value="Submit"/> <input
                                 type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">Finish:</h2>
-                                    </div>
-                                    <div class="col-5">
-                                        <h2 class="steps">Step 4 - 4</h2>
-                                    </div>
-                                </div>
                                 <br><br>
-                                <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                                <h2 class="purple-text text-center"><strong>THÀNH CÔNG !</strong></h2> <br>
                                 <div class="row justify-content-center">
                                     <div class="col-3"><img src="https://i.imgur.com/GwStPmg.png" class="fit-image">
                                     </div>
@@ -108,7 +124,7 @@
                                 <br><br>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                        <h5 class="purple-text text-center">Đăng tin tuyển dụng thành công</h5>
                                     </div>
                                 </div>
                             </div>

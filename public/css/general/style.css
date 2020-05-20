@@ -1,3 +1,8 @@
+/*custom color*/
+header nav{
+    box-shadow: #9c9c9c 1px 1px 4px;
+}
+/*login form*/
 #form-login {
     margin: 150px auto;
 }
@@ -158,6 +163,9 @@ section {
 
 
 /* post job*/
+.content-post-jobs{
+    margin-top: 20px;
+}
 #heading {
     text-transform: uppercase;
     color: #0672ba;
@@ -200,7 +208,7 @@ section {
     width: 100%;
     box-sizing: border-box;
     color: #2C3E50;
-    background-color: #ECEFF1;
+    /*background-color: #ECEFF1;*/
     font-size: 16px;
     letter-spacing: 1px;
 }
@@ -234,7 +242,7 @@ section {
 
 #msform .action-button-previous {
     width: 100px;
-    background: #616161;
+    /*background: #616161;*/
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -301,21 +309,18 @@ section {
     font-weight: 400;
 }
 
-#progressbar #account:before {
+#progressbar #basic:before {
     font-family: FontAwesome, serif;
     content: "\f13e";
 }
-
-#progressbar #personal:before {
+#progressbar #detail:before {
     font-family: FontAwesome, serif;
-    content: "\f007";
+    content: "\f022";
 }
-
-#progressbar #payment:before {
+#progressbar #company:before {
     font-family: FontAwesome, serif;
-    content: "\f030";
+    content: "\f965";
 }
-
 #progressbar #confirm:before {
     font-family: FontAwesome, serif;
     content: "\f00c";

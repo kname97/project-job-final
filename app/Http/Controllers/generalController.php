@@ -13,4 +13,5 @@ class generalController extends Controller
     function getDemo(){
         return view('generalView.profileDetail');
     }
+
 }

@@ -56,11 +56,10 @@ $(document).ready(function () {
 
 //process bar in view post job
 $(document).ready(function () {
-
-    var current_fs, next_fs, previous_fs; //fieldsets
-    var opacity;
-    var current = 1;
-    var steps = $("fieldset").length;
+    let current_fs, next_fs, previous_fs; //fieldsets
+    let opacity;
+    let current = 1;
+    let steps = $("fieldset").length;
     setProgressBar(current);
     $(".next").click(function () {
         current_fs = $(this).parent();

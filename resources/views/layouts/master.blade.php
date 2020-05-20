@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 </head>
-<body>
+<body class=" bg-light">
 @include('layouts.header')
 @if(session('atention'))
     <div class="alert alert-danger text-center alert-dismissible fade show" style="margin-bottom: 0px !important" role="alert">

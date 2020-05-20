@@ -17,7 +17,8 @@ Route::get('/trang-ca-nhan',function (){
 });
 Route::get('/', 'userController@getloginUser');
 Route::post('/',"userController@postloginUser")->name('loginUser');
-Route::get('dang-ky','userController@getRegisterUser');
+Route::get('/dang-ky','userController@getRegisterUser');
+Route::post('/dang-ky', 'userController@postRegisUser')->name('createUser');
 Route::get('/dang-xuat', 'userController@logoutUser');
 Route::get('/demo', 'generalController@getDemo');
 
@@ -33,8 +34,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get ('/manage-ranks'     ,'admin\defineAdminController@getRanks');
 });
 //employer
+Route::get('/dang-tin-tuyen-dung','Employer\employerController@getViewPostJob')->name('getPostJob');
 Route::group(['prefix'=>'nha-tuyen-dung'], function (){
-    Route::get('/dang-tin-tuyen-dung','Employer\employerController@getViewPostJob')->name('getPostJob');
+
 });
 // employer
 Route::group(['prefix'=>'thong-tin-ca-nhan'], function (){

@@ -7,7 +7,8 @@
                 <div class="form-group">
                     <h2 class="label-regis"> Đăng ký </h2>
                 </div>
-                <form>
+                <form action="{{ route('createUser') }}" method="post">
+                    @csrf
                     <div class="form-inline form-child">
                         <label for="" class="col-md-3"> Tên đăng nhập <span class="text-danger">*</span></label>
                         <input type="text" class="form-control col-md-7 {{ $errors->has('txtusername') ? ' is-invalid' : '' }}" name="txtusername" id="txtusername" aria-describedby="helpId" >
@@ -41,11 +42,11 @@
                     <div class="form-inline form-child">
                         <label for="" class="col-md-3"> Xác nhận mật khẩu <span class="text-danger">*</span></label>
                         <input type="password" class="{{ $errors->has('txtpassword') ? ' is-invalid' : '' }} form-control col-md-7" name="txtpassword_confirmation" id="password-confirm" aria-describedby="helpId" >
-                        {{-- @if($errors->has('txtpassword.comfirmed'))
-                        <small id="helpId" class="form-text text-danger col-md-9 offset-md-3 ">
-                            {{$errors->first('txtpassword.confirmed')}}
-                        </small>
-                        @endif --}}
+                        @if($errors->has('txtpassword'))
+                            <small id="helpId" class="form-text text-danger col-md-9 offset-md-3 ">
+                                {{$errors->first('txtpassword')}}
+                            </small>
+                        @endif
                         {{-- check lỗi bằng vadilate --}}
                     </div>
                     <div class="form-inline form-child">
