@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\DataTables;
+use App\User;
 
 class defineAdminController extends Controller
 {
@@ -14,6 +16,12 @@ class defineAdminController extends Controller
    function getAccounts()
    {
        return view('admin.pagesAdmin.accountsAdmin');
+   }
+   function getListAcounts(){
+//       $users = User::where('level', '!=', 0)->first();
+       $users = User::select(['id','username','email','created_at','updated_at'])->where('level', '!=', 0);
+       print_r($users); exit;
+       return DataTables::of($users)->make(true);
    }
    function getApplies()
    {

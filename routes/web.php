@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get ('/logout'           ,'admin\adminController@logoutAdmin')->name('adminLogout');
     Route::get ('/'                 ,'admin\adminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
     Route::get ('/manage-accounts'  ,'admin\defineAdminController@getAccounts');
+    Route::get('/list-accounts'     ,'admin\defineAdminController@getListAcounts')->name('listAccounts');
     Route::get ('/manage-applies'   ,'admin\defineAdminController@getApplies');
     Route::get ('/manage-reviews'   ,'admin\defineAdminController@getReviews');
     Route::get ('/manage-ranks'     ,'admin\defineAdminController@getRanks');
