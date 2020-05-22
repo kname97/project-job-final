@@ -2,9 +2,8 @@
 @section('title', ' Quản lý tài khoản thành viên')
 @section('breadcrumd','Quản lý tài khoản')
 @section('content')
-    <h3> quản lý tài khoản</h3>
-    <table class="table table-bordered" id="listUsers" style="margin-bottom: 10px;">
-        <thead>
+    <table class="table table-hover" id="listUsers" >
+        <thead class="thead-dark">
         <tr>
             <th>Id</th>
             <th>Name</th>
@@ -14,4 +13,6 @@
         </tr>
         </thead>
     </table>
+    <?php $faker = Faker\Factory::create();
+    echo $faker->userName ?>
 @endsection

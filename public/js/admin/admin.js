@@ -3,17 +3,27 @@ $("#menu-toggle").click(function(e) {
     $("#wrapper-toggle").toggleClass("toggled");
   });
 
-// $(function () {
-//     $('#listUsers').DataTable({
-//         // processing : true,
-//         // serverSide : true,
-//         ajax : 'list-accounts',
-//         column : [
-//             { data: 'id', name: 'id' },
-//             { data: 'username', name: 'username' },
-//             { data: 'email', name: 'email' },
-//             { data: 'created_at', name: 'created_at', defaultContent: ""},
-//             { data: 'updated_at', name: 'updated_at' , defaultContent: ""}
-//         ]
-//     })
-// });
+$(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $('#listUsers').DataTable({
+        responsive: true,
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: 'list-accounts',
+            type: 'GET',
+        },
+        columns: [
+            { data: 'id' , name: 'id'},
+            { data: 'username' , name: 'username'},
+            { data: 'email'  , name: 'email'},
+            { data: 'created_at' , name: 'created_at'},
+            { data: 'created_at' , name: 'created_at' },
+            // {data: 'action', name: 'action', orderable: false, searchable: false}
+        ],
+    });
+});

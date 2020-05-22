@@ -20,7 +20,8 @@ class defineAdminController extends Controller
    function getListAcounts(){
 //       $users = User::where('level', '!=', 0)->first();
        $users = User::select(['id','username','email','created_at','updated_at'])->where('level', '!=', 0);
-       print_r($users); exit;
+//       print_r($users); exit;
+       //trumbowyg
        return DataTables::of($users)->make(true);
    }
    function getApplies()
