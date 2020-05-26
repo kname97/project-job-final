@@ -12,10 +12,10 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'email','username','pasword',
+        'email','username','pasword',  'level',
     ];
     protected $hidden = [
-        'level', 'password','remember_token',
+       'password','remember_token',
     ];
     protected $casts = [
         'email_verified_at' => 'datetime',

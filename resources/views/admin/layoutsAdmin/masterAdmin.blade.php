@@ -43,11 +43,12 @@
 
     {{-- script boostrap  --}}
 
+{{--    @routes--}}
+     <script src="{{asset('js/general/jquery.min.js')}}"></script>
     <script src="{{asset('js/general/slim.min.js')}}" ></script>
     <script src="{{asset('js/general/popper.min.js')}}" ></script>
     <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/general/jquery.min.js')}}"></script>
-    <script type='text/javascript' src="{{asset('js/general/dataTable.min.js')}}"></script>
+    <script src="{{asset('js/general/dataTable.min.js')}}"></script>
 
             <!-- Menu Toggle Script -->
   <script src="{{ asset('js/admin/admin.js') }}"></script>

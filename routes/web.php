@@ -29,10 +29,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get ('/logout'           ,'admin\adminController@logoutAdmin')->name('adminLogout');
     Route::get ('/'                 ,'admin\adminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
     Route::get ('/manage-accounts'  ,'admin\defineAdminController@getAccounts');
-    Route::get('/list-accounts'     ,'admin\defineAdminController@getListAcounts')->name('listAccounts');
+    Route::get ('/list-accounts'    ,'admin\defineAdminController@getListAcounts')->name('listAccounts');
     Route::get ('/manage-applies'   ,'admin\defineAdminController@getApplies');
     Route::get ('/manage-reviews'   ,'admin\defineAdminController@getReviews');
     Route::get ('/manage-ranks'     ,'admin\defineAdminController@getRanks');
+    Route::get ('/manage-accounts/delete/{id}', 'admin\defineAdminController@deleteAccount')->name('deleteAccount');
+    Route::get ('/manage-accounts/edit/{id}', 'admin\defineAdminController@editAccount')->name('editAccount');
+    Route::post('manage-accounts/save','admin\defineAdminController@saveAccount')->name('saveAccount');
 });
 //employer
 Route::get('/dang-tin-tuyen-dung','Employer\employerController@getViewPostJob')->name('getPostJob');
