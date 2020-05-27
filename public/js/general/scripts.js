@@ -1,22 +1,22 @@
 $(document).ready(function () {
-
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        }
+    });
     $("#loginSubmit").click(function (e) {
         e.preventDefault();
-        const txtemail = $('#txtemail').val();
-        const txtpassword = $('#txtpassword').val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            }
-        });
+        let txtemail = $('#txtemail').val();
+        let txtpassword = $('#txtpassword').val();
         $('#loginSubmit').html('Đang đăng nhập...');
         $.ajax({
             type: "post",
-            url: "/",
+            url: route('loginUser'),
             data: {
                 'email': txtemail,
                 'password': txtpassword
             },
+            dataType: 'json',
             success: function (data) {
                 // $('#loginSubmit').html('Đăng nhập');
                 // if (data.status === 'error') {
@@ -42,12 +42,27 @@ $(document).ready(function () {
                 //     // location.href(data.html);
                 //
                 //     // window.location.href = "http://127.0.0.1:8000/";
-                // }
-                console.log(data);
+                //
+                $('.errorLogin').show().text(data.message);
 
             },
             error: function (data) {
+                let errorsJS = data.responseJSON.errors;
                 console.log(data);
+                $('#loginSubmit').html('Đăng nhập');
+                if (txtemail.length > 0) {
+                    $('.errorEmail').hide();
+                    $('#txtemail').removeClass('is-invalid');
+                }
+                if (txtpassword.length > 0) {
+                    $('.errorPassword').hide();
+                    $('#txtpassword').removeClass('is-invalid');
+                }
+                $('.errorEmail').show().text(errorsJS.email);
+                $('#txtemail').addClass('is-invalid');
+                $('.errorPassword').show().text(errorsJS.password);
+                $('#txtpassword').addClass('is-invalid');
+
             }
         });
 
@@ -106,6 +121,7 @@ $(document).ready(function () {
         });
         setProgressBar(--current);
     });
+
     function setProgressBar(curStep) {
         var percent = parseFloat(100 / steps) * curStep;
         percent = percent.toFixed();

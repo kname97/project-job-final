@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('/trang-ca-nhan',function (){
     return view('employer.profileDetail');
 });
-Route::get('/', 'userController@getloginUser');
+Route::get('/', 'userController@getloginUser')->name('home');
 Route::post('/',"userController@postloginUser")->name('loginUser');
 Route::get('/dang-ky','userController@getRegisterUser');
 Route::post('/dang-ky', 'userController@postRegisUser')->name('createUser');

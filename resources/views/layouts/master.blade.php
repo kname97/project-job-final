@@ -30,6 +30,7 @@
 </div>
 @include('layouts.footer')
 {{-- script boostrap  --}}
+@routes()
 <script src="{{asset('js/general/slim.min.js')}}" ></script>
 <script src="{{asset('js/general/popper.min.js')}}" ></script>
 <script src="{{asset('js/app.js')}}"></script>

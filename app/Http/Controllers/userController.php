@@ -29,29 +29,25 @@ class userController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         if (Auth::attempt(['email' => $email, 'password' => $password]) || Auth::attempt(['username' => $email, 'password' => $password])) {
-            if (Auth::check()) {
-
-                if (Auth::user()->level == 1) {
-                    return response()->json(
-                        [
-                            'status' => 'success',
-                            'message' => 'Đăng nhập thành công',
-                        ]);
-                } elseif (Auth::user()->level == 2) {
-                    return response()->json(
-                        [
-                            'status' => 'success',
-                            'message' => 'Đăng nhập thành công',
-                        ]);
+            if ($request->ajax()){
+                if (Auth::check()) {
+                    if (Auth::user()->level == 1) {
+                        return response()->json(['message' => 'Người tìm việc đăng nhập thành công'],400);
+                    } elseif (Auth::user()->level == 2) {
+                        return response()->json(['message' => 'Nhà tuyển dụng đăng nhập thành công'],400);
+                    }
+                }
+                else {
+                    return response()->json([
+                        'message' => 'Email / tài khoản hoặc mật khẩu không đúng'
+                    ]);
                 }
             }
-            else {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Email / tài khoản hoặc mật khẩu không đúng'
-                ]);
-            }
+
         }
+        return response()->json([
+                        'message' => 'Email / tài khoản hoặc mật khẩu không đúng'
+                    ]);
     }
 
 

@@ -162,7 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-//        Tightenco\Ziggy\ZiggyServiceProvider::class,
+        Tightenco\Ziggy\ZiggyServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+//        Lord\Laroute\LarouteServiceProvider::class,
         /*
          * Package Service Providers...
          */
