@@ -22,7 +22,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="form-group">
-                        <div class="alert alert-danger text-center error errorLogin"  >
+                        <div class="alert alert-success text-center error errorLogin"  >
 
                         </div>
                     </div>

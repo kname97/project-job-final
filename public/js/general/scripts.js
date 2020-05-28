@@ -6,8 +6,8 @@ $(document).ready(function () {
     });
     $("#loginSubmit").click(function (e) {
         e.preventDefault();
-        let txtemail = $('#txtemail').val();
-        let txtpassword = $('#txtpassword').val();
+        const txtemail = $('#txtemail').val();
+        const txtpassword = $('#txtpassword').val();
         $('#loginSubmit').html('Đang đăng nhập...');
         $.ajax({
             type: "post",
@@ -18,38 +18,6 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (data) {
-                // $('#loginSubmit').html('Đăng nhập');
-                // if (data.status === 'error') {
-                //     $('.errorEmail').show().text(data.message.email);
-                //     $('#txtemail').addClass('is-invalid');
-                //     $('.errorPassword').show().text(data.message.password);
-                //     $('#txtpassword').addClass('is-invalid');
-                //     if (data.false === true) {
-                //         $('.errorLogin').show().text(data.message);
-                //     }
-                //     if (txtemail.length > 0) {
-                //         $('.errorEmail').hide();
-                //         $('#txtemail').removeClass('is-invalid');
-                //     }
-                //     if (txtpassword.length > 0) {
-                //         $('.errorPassword').hide();
-                //         $('#txtpassword').removeClass('is-invalid');
-                //     }
-                // } else {
-                //     $('.errorLogin').show().text(data.message);
-                //     toastr.success(' ', 'đăng nhập thành cônng', {timeOut: 3000, positionClass: 'wrapper'});
-                //     location.reload();
-                //     // location.href(data.html);
-                //
-                //     // window.location.href = "http://127.0.0.1:8000/";
-                //
-                $('.errorLogin').show().text(data.message);
-
-            },
-            error: function (data) {
-                let errorsJS = data.responseJSON.errors;
-                console.log(data);
-                $('#loginSubmit').html('Đăng nhập');
                 if (txtemail.length > 0) {
                     $('.errorEmail').hide();
                     $('#txtemail').removeClass('is-invalid');
@@ -57,6 +25,24 @@ $(document).ready(function () {
                 if (txtpassword.length > 0) {
                     $('.errorPassword').hide();
                     $('#txtpassword').removeClass('is-invalid');
+                }
+                $('.errorLogin').show().text(data.message);
+                $('.errorLogin').removeClass('alert-danger');
+                $('.errorLogin').addClass('alert-success');
+            // window.location.reload();
+            },
+            error: function (data) {
+                let errorsJS = data.responseJSON.errors;
+                console.log(data);
+                $('#loginSubmit').html('Đăng nhập');
+                if (txtemail.length > 0) {
+                    $('.errorPassword').hide();
+                    $('#txtpassword').removeClass('is-invalid');
+
+                }
+                if (txtpassword.length > 0) {
+                    $('.errorEmail').hide();
+                    $('#txtemail').removeClass('is-invalid');
                 }
                 $('.errorEmail').show().text(errorsJS.email);
                 $('#txtemail').addClass('is-invalid');
