@@ -21,6 +21,11 @@ class userController extends Controller
     // get login
     function getloginUser()
     {
+        if (Auth::check()) {
+            if (Auth::user()->level == 2) {
+                return view('employer.manageInfor');
+            }
+        }
         return view('index');
     }
 
@@ -30,31 +35,23 @@ class userController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         if ($request->ajax()) {
-            if (Auth::attempt(['email' => $email, 'password' => $password]) || Auth::attempt([
-                    'username' => $email,
-                    'password' => $password
-                ])) {
-
+            if (Auth::attempt(['email' => $email, 'password' => $password]) || Auth::attempt(['username' => $email, 'password' => $password])) {
                 if (Auth::check()) {
                     if (Auth::user()->level == 1) {
                         return response()->json(['message' => 'Người tìm việc đăng nhập thành công']);
                     } elseif (Auth::user()->level == 2) {
                         return response()->json(['message' => 'Nhà tuyển dụng đăng nhập thành công']);
                     } else {
-                        return response()->json(['message' => 'Bạn không phải là nhà tuyển dụng hoặc người tim việc']);
+                        return response()->json(['errors' => 'Bạn không phải là nhà tuyển dụng hoặc người tìm việc']);
                     }
-                } else {
-                    return response()->json([
-                        'message' => 'Email / tài khoản hoặc mật khẩu không đúng'
-                    ]);
                 }
             }
             return response()->json([
-                'message' => 'Email / tài khoản hoặc mật khẩu không đúng'
+                'errors' => 'Email / tài khoản hoặc mật khẩu không đúng'
             ]);
         }
         return response()->json([
-            'message' => 'Email / tài khoản hoặc mật khẩu không đúng'
+            'errors' => 'Email / tài khoản hoặc mật khẩu không đúng'
         ]);
     }
 
@@ -64,7 +61,7 @@ class userController extends Controller
     {
         Auth::logout();
         $request->session()->invalidate();
-        return redirect('/');
+        return Redirect('/');
     }
 
 //register user
@@ -89,21 +86,21 @@ class userController extends Controller
         $user->password = bcrypt($password);
         $user->level = $level;
         $checkRequest = $user->save();
-        if($checkRequest == true)
-        {
+        if ($checkRequest == true) {
             if ($level == 1) {
                 Auth::loginUsingId($user->id);
 //                return redirect('/tim-viec/thong-tin-ca-nhan/'.Auth::guard('account')->user()->username)->with('atention2','Chào mừng người tìm việc đã tạo tài khoảng thành công');
-                return redirect(route('home'))->with('atention2','Chào mừng người tìm việc đã tạo tài khoảng thành công');
+                return redirect(route('home'))->with('atention2',
+                    'Chào mừng người tìm việc đã tạo tài khoảng thành công');
             }
             if ($level == 2) {
                 Auth::loginUsingId($user->id);
 //                return redirect('/tuyen-dung/thong-tin-ca-nhan/'.Auth::guard('account')->user()->username)->with('atention2','Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
-                return redirect(route('home'))->with('atention2','Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
+                return redirect(route('home'))->with('atention2',
+                    'Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
             }
-        }
-        else{
-          return redirect()->back();
+        } else {
+            return redirect()->back();
         }
     }
 

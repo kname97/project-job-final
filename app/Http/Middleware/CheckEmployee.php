@@ -24,12 +24,14 @@ class CheckEmployee
             }
             else
             {
-                return redirect()->back()->with('atention','Bạn không phải là Người tìm việc');
+                toastr()->warning('Bạn cần phải là người tìm việc mới được phép sử dụng tính năng này');
+                return back()->with('atention','Bạn cần phải là người tìm việc mới được phép sử dụng tính năng này');
             }
         }
         else
         {
-            return redirect()->back();
+            toastr()->warning('Bạn cần phải là người tìm việc mới được phép sử dụng tính năng này');
+            return back()->with('atention','Bạn cần phải là người tìm việc mới được phép sử dụng tính năng này');
         }
     }
 }

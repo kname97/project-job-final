@@ -16,19 +16,20 @@ class CheckEmployer
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-
             if (Auth::user()->level == 2)
             {
                 return $next($request);
             }
             else
             {
-                return redirect()->back()->with('atention','Bạn không phải là Nhà tuyển dụng');
+                toastr()->warning('Bạn cần phải là nhà tuyển dụng mới được phép sử dụng tính năng này');
+                return back()->with('atention','Bạn cần phải là nhà tuyển dụng mới được phép sử dụng tính năng này');
             }
         }
         else
         {
-            return redirect()->back();
+            toastr()->warning('Bạn cần phải là nhà tuyển dụng mới được phép sử dụng tính năng này');
+            return back()->with('atention','Bạn cần phải là nhà tuyển dụng mới được phép sử dụng tính năng này');
         }
     }
 }

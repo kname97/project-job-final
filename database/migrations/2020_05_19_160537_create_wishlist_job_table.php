@@ -18,7 +18,6 @@ class CreateWishlistJobTable extends Migration
             $table->integer('employee_id');
             $table->integer('job_id');
             $table->boolean('added');
-
             $table->timestamps();
         });
     }

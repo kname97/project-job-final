@@ -16,7 +16,6 @@ class CreateSpecializeCategoriesTable extends Migration
         Schema::create('specializecategories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->timestamps();
         });
     }
 

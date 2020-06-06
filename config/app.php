@@ -165,6 +165,7 @@ return [
         Tightenco\Ziggy\ZiggyServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 //        Lord\Laroute\LarouteServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class,
         /*
          * Package Service Providers...
          */

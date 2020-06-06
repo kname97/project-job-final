@@ -18,7 +18,7 @@ class CreateLinkProfileTable extends Migration
             $table->integer('employee_id');
             $table->integer('employer_id');
             $table->boolean('comfirm');
-            $table->timestamps();
+
         });
     }
 

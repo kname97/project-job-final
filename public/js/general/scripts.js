@@ -18,37 +18,40 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function (data) {
-                if (txtemail.length > 0) {
-                    $('.errorEmail').hide();
-                    $('#txtemail').removeClass('is-invalid');
+                $('#loginSubmit').html('Đăng nhập');
+                console.log('lỗi', data.errors);
+                if (data.errors != null) {
+                    $('.errorLogin').show().text(data.errors);
+                    $('.errorLogin').addClass('alert-danger');
+                } else {
+                    $('.errorLogin').show().text(data.message);
+                    $('.errorLogin').removeClass('alert-danger');
+                    $('.errorLogin').addClass('alert-success');
+                    window.location.reload();
                 }
-                if (txtpassword.length > 0) {
-                    $('.errorPassword').hide();
-                    $('#txtpassword').removeClass('is-invalid');
-                }
-                $('.errorLogin').show().text(data.message);
-                $('.errorLogin').removeClass('alert-danger');
-                $('.errorLogin').addClass('alert-success');
-            // window.location.reload();
+
+
             },
             error: function (data) {
-                let errorsJS = data.responseJSON.errors;
-                console.log(data);
-                $('#loginSubmit').html('Đăng nhập');
-                if (txtemail.length > 0) {
-                    $('.errorPassword').hide();
-                    $('#txtpassword').removeClass('is-invalid');
 
-                }
-                if (txtpassword.length > 0) {
-                    $('.errorEmail').hide();
-                    $('#txtemail').removeClass('is-invalid');
-                }
+                let errorsJS = data.responseJSON.errors;
                 $('.errorEmail').show().text(errorsJS.email);
                 $('#txtemail').addClass('is-invalid');
                 $('.errorPassword').show().text(errorsJS.password);
                 $('#txtpassword').addClass('is-invalid');
+                console.log(errorsJS);
 
+                if (txtemail.length > 0) {
+
+                    $('.errorEmail').hide();
+                    $('#txtemail').removeClass('is-invalid');
+
+                }
+                if (txtpassword.length > 0) {
+                    $('.errorPassword').hide();
+
+                    $('#txtpassword').removeClass('is-invalid');
+                }
             }
         });
 
@@ -117,6 +120,29 @@ $(document).ready(function () {
 
     $(".submit").click(function () {
         return false;
-    })
+    });
+
+
+    //select2 in postJob
+    $('#select-categoryJob').select2({
+        // ajax: {
+        //     url: route('getCateJob'),
+        //     type: 'get',
+        //     dataType: 'json',
+        //
+        //     data: function (params) {
+        //         return {
+        //             name: params.name
+        //         }
+        //     },
+        //     processResults: function (data) {
+        //         return {
+        //             results: data
+        //         };
+        //     },
+            placeholder: 'Chọn danh mục',
+            containerCssClass: "form-control"
+        // },
+    });
 
 });

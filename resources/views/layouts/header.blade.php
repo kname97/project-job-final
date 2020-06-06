@@ -7,33 +7,62 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <form class="navbar-form navbar-left" action="/action_page.php">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <form class="navbar-form navbar-left" action="/action_page.php">--}}
+{{--                        <div class="input-group">--}}
+{{--                            <input type="text" class="form-control" placeholder="Search">--}}
+{{--                            <div class="input-group-btn">--}}
+{{--                                <button class="btn btn-default" type="submit">--}}
+{{--                                    <i class="fas fa-search"></i>--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
+{{--                </li>--}}
             </ul>
             @if(Auth::check())
                 @if(Auth::user()->level == 1)
                     <span class="navbar-text">
-                        <a href="#" class="nav-link">
-                            Việc làm
+                        <a href="{{route('getViewManageApplies')}}" class="nav-link">
+                           Quản lý đơn xin việc
                         </a>
                     </span>
-
+                    <div class="dropdown navbar-text">
+                        <button class="dropbtn-link">Danh sách yêu thích</button>
+                        <div class="dropdown-content">
+                            <a class="nav-link" href="{{route('getViewWishlistJob')}}">Công việc yêu thích</a>
+                            <a class="nav-link" href="{{route('getViewWishlistEmployer')}}">Nhà tuyển dụng yêu thích</a>
+                        </div>
+                    </div>
+                    <span class="navbar-text">
+                        <a href="{{route('getViewReview')}}" class="nav-link">
+                          Đánh giá
+                        </a>
+                    </span>
+                    <span class="navbar-text">
+                        <a href="{{route('getViewRank')}}" class="nav-link">
+                          Bảng xếp hạng
+                        </a>
+                    </span>
                 @elseif(Auth::user()->level == 2)
                     <span class="navbar-text">
-                        <a href="{{route('getPostJob')}}" class="nav-link">
-                           Tuyển dụng
+                        <a href="#" class="nav-link">
+                          Giới thiệu nhà tuyển dụng
                         </a>
                     </span>
+                    <span class="navbar-text">
+                        <a href="" class="nav-link">
+                          Hồ sơ tuyển dụng
+                        </a>
+                    </span>
+                    <div class="dropdown navbar-text">
+                        <button class="dropbtn-link">Quản lý tin đăng</button>
+                        <div class="dropdown-content">
+                            <a class="nav-link" href="{{route('getPostJob')}}">Đăng tin tuyển dụng</a>
+                            <a class="nav-link" href="#">Sửa tin tuyển dụng</a>
+                            <a class="nav-link" href="#">Xóa tin tuyển dụng</a>
+                        </div>
+                    </div>
 
                 @endif
                 {{--                    <li class="nav-item dropdown">--}}

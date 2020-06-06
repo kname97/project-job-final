@@ -10,47 +10,48 @@
     <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/general/dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{asset('css/general/select2.min.css')}}">
+    @toastr_css
 </head>
 <body>
-    <body>
+<div class="d-flex" id="wrapper-toggle">
 
-        <div class="d-flex" id="wrapper-toggle">
+    <!-- Sidebar -->
+@include('admin.layoutsAdmin.leftMenuAdmin')
+<!-- /#sidebar-wrapper -->
 
-          <!-- Sidebar -->
-            @include('admin.layoutsAdmin.leftMenuAdmin')
-          <!-- /#sidebar-wrapper -->
-
-          <!-- Page Content -->
-          <div id="page-content-wrapper">
-            @include('admin.layoutsAdmin.navAdmin')
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        @include('admin.layoutsAdmin.navAdmin')
 
 
-            <div class="container-fluid">
-                <div id="wrapper">
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">@yield('breadcrumd')</li>
-                    </ol>
-                    @yield('content')
-                </div>
-          </div>
-          <!-- /#page-content-wrapper -->
-
+        <div class="container-fluid">
+            <div id="wrapper">
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">@yield('breadcrumd')</li>
+                </ol>
+                @yield('content')
+            </div>
         </div>
-        <!-- /#wrapper -->
+        <!-- /#page-content-wrapper -->
 
+    </div>
+    <!-- /#wrapper -->
 
+</div>
 
+{{-- script boostrap  --}}
 
-    {{-- script boostrap  --}}
-
-{{--    @routes--}}
-     <script src="{{asset('js/general/jquery.min.js')}}"></script>
-    <script src="{{asset('js/general/slim.min.js')}}" ></script>
-    <script src="{{asset('js/general/popper.min.js')}}" ></script>
-    <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/general/dataTable.min.js')}}"></script>
-
-            <!-- Menu Toggle Script -->
-  <script src="{{ asset('js/admin/admin.js') }}"></script>
+@routes()
+<script src="{{asset('js/general/jquery.min.js')}}"></script>
+<script src="{{asset('js/general/slim.min.js')}}"></script>
+<script src="{{asset('js/general/popper.min.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/general/dataTable.min.js')}}"></script>
+<script src="{{asset('js/general/select2.full.min.js')}}"></script>
+@toastr_js
+@toastr_render
+<!-- Menu Toggle Script -->
+<script src="{{ asset('js/admin/admin.js') }}"></script>
 </body>
 </html>

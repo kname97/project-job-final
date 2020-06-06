@@ -37,14 +37,16 @@ $(document).ready(function () {
         let id = $(this).data("id");
         // if (confirm('Bạn muốn tài khoản ' + id + ' ?') === true)
             $.ajax({
-                url: 'manage-accounts/delete' + '/' + id,
+                url: route('deleteAccount', id),
                 type: "GET",
                 success: function (data) {
                     let oTable = $('#listUsers').dataTable();
                     oTable.fnDraw(false);
+                    toastr.success( 'Xóa tài khoản thành công', 'Thông báo', {timeOut: 1000});
                 },
                 error: function (data) {
                     console.log('Error: ', data);
+                    toastr.error( 'Xóa tài khoản thất bại', 'Thông báo', {timeOut: 1000});
                 }
             });
     });
@@ -61,7 +63,7 @@ $(document).ready(function () {
         $('#user_id').val(id);
         $.ajax({
             type: 'GET',
-            url: 'manage-accounts/edit' + '/' + id,
+            url: route('editAccount',id),
             success: function (data) {
                 $('#editusername').val(data.username);
                 $('#editemail').val(data.email);

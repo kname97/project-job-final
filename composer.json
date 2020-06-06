@@ -14,7 +14,8 @@
         "laravel/tinker": "^1.0",
         "lord/laroute": "^2.5",
         "tightenco/ziggy": "^0.9.3",
-        "yajra/laravel-datatables-oracle": "^9.10"
+        "yajra/laravel-datatables-oracle": "^9.10",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.7",

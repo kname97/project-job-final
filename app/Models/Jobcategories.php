@@ -22,5 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Jobcategories extends Model
 {
-    //
+   protected $table = "jobcategories";
+   protected $fillable = [
+     'id'  ,' name'
+   ];
 }

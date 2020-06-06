@@ -25,6 +25,7 @@ class CreateProfileEmployersTable extends Migration
             $table->string('city');
             $table->string('district');
             $table->integer('user_id');
+            $table->timestamps();
         });
     }
 

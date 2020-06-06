@@ -34,11 +34,14 @@
                                        placeholder="Tiêu đề đơn tuyển dụng"/>
                                 <label class="fieldlabels">Trực thuộc: *</label>
                                 <div class="input-group mb-3">
-                                    <select class="custom-select" id="inputGroupSelect01">
-                                        <option selected>Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+
+                                    <select class="custom-select" id="select-categoryJob">
+                                        <option value=""></option>
+                                        {{--                                        <option value="{{$cateJob['id']}}">{{$cateJob['name']}}</option>--}}
+                                        @foreach($cateJobs as $cateJob)
+                                            <option value="{{$cateJob->id}}">{{$cateJob->name}}</option>
+                                        @endforeach
+
                                     </select>
                                 </div>
                                 <label class="fieldlabels">Mô tả : *</label>
@@ -60,7 +63,7 @@
                                 </div>
                                 <label class="fieldlabels">Loại công việc : *</label>
                                 <div class="input-group mb-3">
-                                    <select class="custom-select" id="inputGroupSelect01" >
+                                    <select class="custom-select" id="inputGroupSelect01">
                                         <option selected>Choose...</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -82,16 +85,17 @@
                                     </div>
                                 </div>
                                 <label class="fieldlabels">Ngày bắt đầu : *</label>
-                                <input type="text" name="companyname" />
+                                <input type="text" name="companyname"/>
                                 <label class="fieldlabels">Số lượng cần tuyển: *</label>
-                                <input type="number" name="number-employee" />
+                                <input type="number" name="number-employee"/>
                                 <label class="fieldlabels">Chức vụ: *</label>
                                 <input type="text" name="position" placeholder="Tên chức vụ"/>
                                 <label class="fieldlabels">Yêu cầu kinh nghiệm: *</label>
                                 <input type="number" name="exp"/>
                             </div>
                             <input type="button" name="next" class="next action-button" value="Next"/>
-                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                   value="Previous"/>
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -104,9 +108,9 @@
                                     </div>
                                 </div>
                                 <label class="fieldlabels">Địa chỉ : *</label>
-                                <input type="text" name="address" />
+                                <input type="text" name="address"/>
                                 <label class="fieldlabels">Email: *</label>
-                                <input type="number" name="email" />
+                                <input type="number" name="email"/>
                                 <label class="fieldlabels">Số điện thoại: *</label>
                                 <input type="number" name="phone"/>
                             </div>

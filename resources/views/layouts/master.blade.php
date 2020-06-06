@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/general/dataTables.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
+    <link rel="stylesheet" href="{{asset('css/general/select2.min.css')}}">
 </head>
 <body class=" bg-light">
 @include('layouts.header')
@@ -37,6 +37,7 @@
 <script src="{{asset('js/general/jquery.min.js')}}"></script>
 <script type='text/javascript' src="{{asset('js/general/dataTable.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="{{asset('js/general/select2.full.min.js')}}"></script>
 <script src="{{ asset('js/general/scripts.js') }}"></script>
 </body>
 </html>
