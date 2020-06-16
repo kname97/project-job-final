@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // setup ajax all
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -125,24 +126,51 @@ $(document).ready(function () {
 
     //select2 in postJob
     $('#select-categoryJob').select2({
-        // ajax: {
-        //     url: route('getCateJob'),
-        //     type: 'get',
-        //     dataType: 'json',
-        //
-        //     data: function (params) {
-        //         return {
-        //             name: params.name
-        //         }
-        //     },
-        //     processResults: function (data) {
-        //         return {
-        //             results: data
-        //         };
-        //     },
-            placeholder: 'Chọn danh mục',
-            containerCssClass: "form-control"
+        placeholder: 'Chọn danh mục',
+        containerCssClass: "form-control"
         // },
     });
 
+    // trumbowyg
+    $('#description-postjob').trumbowyg({
+        lang: 'vi',
+        btns: [
+            ['viewHTML'],
+            ['formatting'],
+            ['historyUndo','historyRedo'],
+            ['strong', 'em', 'del'],
+            ['align'],
+            ['foreColor', 'backColor'],
+            ['link'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen'],
+        ],
+        autogrow: true
+    });
+
+    // checked begotiable
+    // $( "#negotiable" ).on( "click", function() {
+    //     if( $('#negotiable:checkbox:checked').length > 0){
+    //         $("input[name=minsalary]").attr('disabled', 'disabled');
+    //         $("input[name=maxsalary]").attr('disabled', 'disabled');
+    //     }else {
+    //         $("input[name=minsalary]").attr('disabled', '');
+    //         $("input[name=maxsalary]").attr('disabled', '');
+    //     }
+
+    // });
+    $("input[name='minsalary']").datepicker({
+        format: 'dd-mm-yyyy',
+        changeMonth: true,
+        changeYear: true
+    });
+    $("input[name='maxsalary']").datepicker({
+
+        format: 'dd-mm-yyyy',
+        changeMonth: true,
+        changeYear: true
+
+    });
 });

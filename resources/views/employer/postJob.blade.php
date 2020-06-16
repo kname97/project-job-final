@@ -45,7 +45,7 @@
                                     </select>
                                 </div>
                                 <label class="fieldlabels">Mô tả : *</label>
-                                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1"
+                                <textarea class="form-control rounded-0" id="description-postjob"
                                           rows="10"></textarea>
 
                             </div>
@@ -64,20 +64,21 @@
                                 <label class="fieldlabels">Loại công việc : *</label>
                                 <div class="input-group mb-3">
                                     <select class="custom-select" id="inputGroupSelect01">
-                                        <option selected>Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option selected>Chọn...</option>
+                                        <option value="1">Bán thời gian</option>
+                                        <option value="2">Toàn thời gian</option>
+                                        <option value="3">Thực tập</option>
+                                        <option value="3">Freelancer</option>
                                     </select>
                                 </div>
                                 <div class="form-inline">
                                     <div class="form-group">
                                         <label class="fieldlabels"> Lương tối thiểu *:</label>
-                                        <input class="form-control " type="number" name="minsalary">
+                                        <input class=" date form-control  " type="text" name="minsalary" >
                                     </div>
                                     <div class="form-group">
                                         <label class="fieldlabels mx-sm-5"> Lương tối đa *:</label>
-                                        <input class="form-control mx-sm-5" type="number" name="maxsalary">
+                                        <input class=" date form-control mx-sm-5" type="text" name="maxsalary" >
                                     </div>
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="negotiable">
