@@ -19,7 +19,7 @@ class CreateProfileEmployeeTable extends Migration
             $table->string('firstname');
             $table->enum('gender',['male','female']);
             $table->date('dob');
-            $table->longText('desciption');
+            $table->longText('description')->nullable();
             $table->string('phone');
             $table->string('address');
             $table->string('city');

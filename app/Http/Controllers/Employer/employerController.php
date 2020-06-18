@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -13,6 +14,10 @@ class employerController extends Controller
     }
      function checkEmployer(){
 
+     }
+     function getProfile($username){
+
+        return view('employer.profileEmployer');
      }
     function getViewPostJob(){
         if (Auth::check())

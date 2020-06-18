@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="{{ asset('css/general/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/general/dataTables.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    @toastr_css
     <link rel="stylesheet" href="{{asset('css/general/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('trumbowyg/dist/ui/trumbowyg.min.css')}}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+{{--    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">--}}
 </head>
 <body class=" bg-light">
 @include('layouts.header')
@@ -27,6 +27,16 @@
         </strong>
     </div>
 @endif
+ @if(session('atention-register'))
+   <div class="alert alert-success text-center alert-dismissible fade show" style="margin-bottom: 0px !important" role="alert">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+     </button>
+     <strong >
+ {{session('atention-register')}}
+     </strong>
+   </div>
+ @endif
 <div class="wrapper">
     @yield('content')
 </div>
@@ -38,11 +48,13 @@
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/general/jquery.min.js')}}"></script>
 <script type='text/javascript' src="{{asset('js/general/dataTable.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <script src="{{asset('js/general/select2.full.min.js')}}"></script>
 <script src="{{asset('trumbowyg/dist/trumbowyg.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('trumbowyg/dist/langs/vi.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>--}}
 <script src="{{ asset('js/general/scripts.js') }}"></script>
+@toastr_js
+@toastr_render
 </body>
 </html>

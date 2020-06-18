@@ -7,18 +7,18 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav mr-auto">
-{{--                <li class="nav-item">--}}
-{{--                    <form class="navbar-form navbar-left" action="/action_page.php">--}}
-{{--                        <div class="input-group">--}}
-{{--                            <input type="text" class="form-control" placeholder="Search">--}}
-{{--                            <div class="input-group-btn">--}}
-{{--                                <button class="btn btn-default" type="submit">--}}
-{{--                                    <i class="fas fa-search"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                </li>--}}
+                {{--                <li class="nav-item">--}}
+                {{--                    <form class="navbar-form navbar-left" action="/action_page.php">--}}
+                {{--                        <div class="input-group">--}}
+                {{--                            <input type="text" class="form-control" placeholder="Search">--}}
+                {{--                            <div class="input-group-btn">--}}
+                {{--                                <button class="btn btn-default" type="submit">--}}
+                {{--                                    <i class="fas fa-search"></i>--}}
+                {{--                                </button>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </form>--}}
+                {{--                </li>--}}
             </ul>
             @if(Auth::check())
                 @if(Auth::user()->level == 1)
@@ -69,19 +69,23 @@
                 <a class="nav-link text-capitalize dropdown" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVudfcgyMsEWu1ibVhe1TV5fgIURljQMDslLFN4HyEwNSWqdnm&usqp=CAU"
-                        alt="Avatar" class="avatar-header">
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVudfcgyMsEWu1ibVhe1TV5fgIURljQMDslLFN4HyEwNSWqdnm&usqp=CAU"
+                            alt="Avatar" class="avatar-header">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">
-                        <i class="far fa-user-circle"></i>
-                        Thông tin tài khoản
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ url('/dang-xuat') }}">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Đăng xuất
-                    </a>
+                    @if(Auth::user()->level == 1)
+                        <a class="dropdown-item" href="{{route('getProfileEmployee', ['username'=> Auth::user()->username ])}}">
+                            @elseif(Auth::user()->level == 2)
+                                <a class="dropdown-item" href="{{route('getProfileEmployer', ['username'=> Auth::user()->username ])}}">
+                            @endif
+                            <i class="far fa-user-circle"></i>
+                            Thông tin tài khoản
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('/dang-xuat') }}">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Đăng xuất
+                        </a>
                 </div>
                 {{--                      </li>--}}
             @else

@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     // setup ajax all
     $.ajaxSetup({
@@ -9,6 +10,18 @@ $(document).ready(function () {
         e.preventDefault();
         const txtemail = $('#txtemail').val();
         const txtpassword = $('#txtpassword').val();
+        const checkError = function(){
+            if (txtemail.length > 0) {
+
+                $('.errorEmail').hide();
+                $('#txtemail').removeClass('is-invalid');
+
+            }
+            if (txtpassword.length > 0) {
+                $('.errorPassword').hide();
+                $('#txtpassword').removeClass('is-invalid');
+            }
+        };
         $('#loginSubmit').html('Đang đăng nhập...');
         $.ajax({
             type: "post",
@@ -17,10 +30,13 @@ $(document).ready(function () {
                 'email': txtemail,
                 'password': txtpassword
             },
+
             dataType: 'json',
             success: function (data) {
                 $('#loginSubmit').html('Đăng nhập');
-                console.log('lỗi', data.errors);
+                // console.log('thanhcong', data.errors);
+                checkError();
+
                 if (data.errors != null) {
                     $('.errorLogin').show().text(data.errors);
                     $('.errorLogin').addClass('alert-danger');
@@ -33,26 +49,16 @@ $(document).ready(function () {
 
 
             },
-            error: function (data) {
-
+            error: function (data, xhr) {
+                $('#loginSubmit').html('Đăng nhập');
+                // console.log('lỗi', xhr);
                 let errorsJS = data.responseJSON.errors;
                 $('.errorEmail').show().text(errorsJS.email);
                 $('#txtemail').addClass('is-invalid');
                 $('.errorPassword').show().text(errorsJS.password);
                 $('#txtpassword').addClass('is-invalid');
                 console.log(errorsJS);
-
-                if (txtemail.length > 0) {
-
-                    $('.errorEmail').hide();
-                    $('#txtemail').removeClass('is-invalid');
-
-                }
-                if (txtpassword.length > 0) {
-                    $('.errorPassword').hide();
-
-                    $('#txtpassword').removeClass('is-invalid');
-                }
+                checkError();
             }
         });
 
@@ -133,6 +139,23 @@ $(document).ready(function () {
 
     // trumbowyg
     $('#description-postjob').trumbowyg({
+        lang: 'vi',
+        btns: [
+            ['viewHTML'],
+            ['formatting'],
+            ['historyUndo','historyRedo'],
+            ['strong', 'em', 'del'],
+            ['align'],
+            ['foreColor', 'backColor'],
+            ['link'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen'],
+        ],
+        autogrow: true
+    });
+    $('#description-profile').trumbowyg({
         lang: 'vi',
         btns: [
             ['viewHTML'],

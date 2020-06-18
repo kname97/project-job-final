@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\User;
+use App\Models\Employees;
+use App\Models\Employers;
 use App\Http\Requests\loginRequest;
 use App\Http\Requests\registerRequest;
 use Illuminate\Support\MessageBag;
@@ -35,7 +37,10 @@ class userController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         if ($request->ajax()) {
-            if (Auth::attempt(['email' => $email, 'password' => $password]) || Auth::attempt(['username' => $email, 'password' => $password])) {
+            if (Auth::attempt(['email' => $email, 'password' => $password]) || Auth::attempt([
+                    'username' => $email,
+                    'password' => $password
+                ])) {
                 if (Auth::check()) {
                     if (Auth::user()->level == 1) {
                         return response()->json(['message' => 'Người tìm việc đăng nhập thành công']);
@@ -75,10 +80,10 @@ class userController extends Controller
 
     function postRegisUser(registerRequest $request)
     {
-        $username = $request->txtusername;
-        $email = $request->txtemail;
-        $password = $request->txtpassword;
-        $level = $request->txtlevel;
+        $username = $request->input('txtusername');
+        $email = $request->input('txtemail');
+        $password = $request->input('txtpassword');
+        $level = $request->input('txtlevel');
 
         $user = new User;
         $user->username = $username;
@@ -89,15 +94,15 @@ class userController extends Controller
         if ($checkRequest == true) {
             if ($level == 1) {
                 Auth::loginUsingId($user->id);
-//                return redirect('/tim-viec/thong-tin-ca-nhan/'.Auth::guard('account')->user()->username)->with('atention2','Chào mừng người tìm việc đã tạo tài khoảng thành công');
-                return redirect(route('home'))->with('atention2',
-                    'Chào mừng người tìm việc đã tạo tài khoảng thành công');
+                return redirect(route('getProfileEmployee',['username'=>Auth::user()->username]))->with('atention-register','Chào mừng người tìm việc đã tạo tài khoảng thành công');
+//                return redirect(route('home'))->with('atention',
+//                    'Chào mừng người tìm việc đã tạo tài khoảng thành công');
             }
             if ($level == 2) {
                 Auth::loginUsingId($user->id);
-//                return redirect('/tuyen-dung/thong-tin-ca-nhan/'.Auth::guard('account')->user()->username)->with('atention2','Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
-                return redirect(route('home'))->with('atention2',
-                    'Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
+                return redirect(route('getProfileEmployee',['username'=>Auth::user()->username]))->with('atention-register','Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
+//                return redirect(route('home'))->with('atention',
+//                    'Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
             }
         } else {
             return redirect()->back();

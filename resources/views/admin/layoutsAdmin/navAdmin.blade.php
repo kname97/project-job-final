@@ -15,10 +15,10 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">
                     <i class="far fa-user-circle"></i>
-                        Thông tin tài khoản 
+                        Thông tin tài khoản
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ url('/admin/logout') }}">
+                <a class="dropdown-item" href="{{route('adminLogout') }}">
                     <i class="fas fa-sign-out-alt"></i>
                     Đăng xuất
                 </a>
@@ -26,11 +26,11 @@
         </li>
         @else
         <li class="nav-item ">
-            <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal"> 
-                Đăng nhập 
-            </a>            
+            <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">
+                Đăng nhập
+            </a>
         </li>
-                @endif          
+                @endif
      </ul>
    </div>
  </nav>
