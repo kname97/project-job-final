@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    <div class="container-fluid content-profile">
+    <div class="container-fluid content-child">
         <div class=" container-fluid">
             <div class="row">
                 <div class="col-3">
@@ -18,15 +18,18 @@
                     <div class="profile-detail">
                         <div class="row my-2">
                             <div class="col-12 order-lg-2">
-                                <ul class="nav nav-tabs">
+                                <ul class="nav nav-tabs" id="tab-profile">
                                     <li class="nav-item">
-                                        <a href="" data-target="#profile" data-toggle="tab" class="nav-link ">Thông tin cá nhân</a>
+                                        <a href="#profile" data-target="#profile" data-toggle="tab" class="nav-link ">Thông tin cá nhân</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Thông báo</a>
+                                        <a href="#messages" data-target="#messages" data-toggle="tab" class="nav-link">Thông báo</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="" data-target="#edit" data-toggle="tab" class="nav-link active">Chỉnh sửa</a>
+                                        <a href="#edit" data-target="#edit" data-toggle="tab" class="nav-link active">Chỉnh sửa</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#edit-password" data-target="#edit-password" data-toggle="tab" class="nav-link"> Thay đổi mật khẩu</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content py-4">
@@ -111,34 +114,34 @@
                                         </table>
                                     </div>
                                     <div class="tab-pane active" id="edit">
-                                        <form role="form">
+                                        <form id="form-create-profile" method="POST" action="{{ route('postProfileEmployee')  }}">
                                             @csrf
-                                            <input type="hidden" name="user_id" value="{{$employee->id}}">
+                                            <input type="hidden" name="user_id" id="user_id" value="{{$employee->id}}">
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Tên <span
                                                             class="require-field">*</span></label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control txtfirstname" name="txtfirstname" type="text" value="Khánh">
+                                                    <input class="form-control " name="txtfirstname"  type="text">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Họ ( bao gồm tên lót) <span
                                                             class="require-field">*</span></label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control txtlastname " name="txtlastname" type="text" value="Quốc Khánh">
+                                                    <input class="form-control  " name="txtlastname" type="text">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control txtemail" name="txtemail" type="email" value="{{$employee->email}}"
+                                                    <input class="form-control " name="txtemail" type="email" value="{{$employee->email}}"
                                                            disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Username</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control txtusername" name="txtusername" type="text"
+                                                    <input class="form-control " name="txtusername" type="text"
                                                            value="{{$employee->username}}"
                                                            disabled>
                                                 </div>
@@ -157,7 +160,7 @@
                                                 <label class="col-lg-3 col-form-label form-control-label">Ngày sinh <span
                                                             class="require-field">*</span></label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control txtdob" name="txtdob" type="text" value="" placeholder="Ngày sinh">
+                                                    <input class="form-control " name="txtdob" type="date" value="" placeholder="Ngày sinh">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -188,27 +191,22 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label form-control-label">Mật khẩu</label>
-                                                <div class="col-lg-9">
-                                                    <input class="form-control" type="password" name="txtpassword" placeholder="để trống nếu không muốn đổi mật khẩu">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label form-control-label">Xác nhận mật khẩu</label>
-                                                <div class="col-lg-9">
-                                                    <input class="form-control" type="password" name="txtpassword_confirmation">
-                                                </div>
-                                            </div>
+
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                                 <div class="col-lg-9">
                                                     <input type="reset" class="btn btn-secondary" value="Hủy">
-                                                    <input type="button" class="btn btn-primary" value="Lưu">
+                                                    <input type="submit" class="btn btn-primary" value="Lưu">
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
+
+                                    <div class="tab-pane " id="edit-password">
+                                        @include('form.updatePassword')
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

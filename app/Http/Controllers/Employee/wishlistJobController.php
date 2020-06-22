@@ -7,10 +7,10 @@ use App\Http\Controllers\Controller;
 
 class wishlistJobController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('employee');
-    }
+//    function __construct()
+//    {
+//        $this->middleware('employee');
+//    }
 
     function index()
     {

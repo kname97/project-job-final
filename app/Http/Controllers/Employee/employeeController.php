@@ -12,7 +12,7 @@ use App\Http\Requests\createProfile;
 
 class employeeController extends Controller
 {
-    // get view
+//    // get view
     function __construct()
     {
         $this->middleware('employee');
@@ -22,13 +22,13 @@ class employeeController extends Controller
     {
         $user = Auth::user()->id;
         $employee = User::find($user);
-
         return view('employee.profileEmployee', compact('employee'));
     }
 
 //     create profile
     function profileStore(createProfile $request)
     {
+
         $user_id = $request->input('user_id');
         $firstname = $request->input('txtfirstname');
         $lastname = $request->input('txtlastname');
@@ -38,8 +38,6 @@ class employeeController extends Controller
         $city = $request->input('txtcity');
         $district = $request->input('txtdistrict');
         $description = $request->input('description-profile');
-        $password = $request->input('txtpassword');
-
         $employeeStore = new Employees;
         $employeeStore->user_id = $user_id;
         $employeeStore->firstname = $firstname;
@@ -50,8 +48,15 @@ class employeeController extends Controller
         $employeeStore->city = $city;
         $employeeStore->district = $district;
         $employeeStore->description = $description;
+        $checkEmployeeStore = $employeeStore->save();
+        if($checkEmployeeStore == true){
+            toastr()->success('cập nhật thông tin cá nhân thành công');
+            return redirect()->back();
+        }else{
+            toastr()->error('cập nhật thông tin thất bại vui lòng kiểm tra lại các trường bên dưới');
+            return redirect()->back();
 
-
+        }
     }
 
 //    update profile

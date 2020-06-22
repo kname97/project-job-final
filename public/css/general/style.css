@@ -418,9 +418,99 @@ section {
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 /*fix layout */
-.content-profile{
+.content-profile , .content-child{
+
     margin-top: 20px;
 }
 .require-field{
     color: red;
+}
+/*search-job*/
+#apply-search-job{
+    width: 100%;
+}
+
+/* ranking employer*/
+.title-h1{
+    font-weight: bolder;
+}
+.number-1{
+    background-color: gold !important;
+    color: black !important;
+}
+.number-2{
+    background-color: silver !important;
+    color: white !important;
+}
+.number-3{
+    background-color: #9d4c0b !important;
+    color: white !important;
+}
+.top-company{
+    color: #333;
+    border: 1px solid #D8D8D8;
+    background: white;
+    display: block;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+a.top-company:hover{
+    text-decoration: none !important;
+    color: #3e8e41;
+}
+.top-company__logo {
+    width: 170px;
+    height: 170px;
+    margin: 30px auto 20px;
+    line-height: 170px;
+
+}
+.top-company__name {
+    margin-top: 10px;
+    font-size: 20px;
+    height: 56px;
+}
+footer.top-company__footer {
+    margin-top: 20px;
+}
+ span.top-ranking {
+     background-color: #0b87b2;
+    display: inline-block;
+    padding: 8px 90px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: absolute;
+    right: -65px;
+    top: 29px;
+    z-index: 22;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    font-size: 16px;
+
+}
+.text-center {
+    text-align: center;
+}
+
+
+.select2-container--default .select2-selection--single,
+.select2-selection .select2-selection--single {
+    border: 1px solid #d2d6de;
+    border-radius: .25rem !important;
+    padding: 6px 12px;
+    height: calc(2.19rem + 2px) !important
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 5px !important;
+    right: 1px;
+    width: 20px
+}
+a:hover{
+    text-decoration: none;
 }

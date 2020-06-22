@@ -38,7 +38,7 @@
                                     <select class="custom-select" id="select-categoryJob">
                                         <option value=""></option>
                                         {{--                                        <option value="{{$cateJob['id']}}">{{$cateJob['name']}}</option>--}}
-                                        @foreach($cateJobs as $cateJob)
+                                        @foreach($jobCategory as $cateJob)
                                             <option value="{{$cateJob->id}}">{{$cateJob->name}}</option>
                                         @endforeach
 

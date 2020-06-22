@@ -74,9 +74,9 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     @if(Auth::user()->level == 1)
-                        <a class="dropdown-item" href="{{route('getProfileEmployee', ['username'=> Auth::user()->username ])}}">
+                        <a class="dropdown-item" href="{{route('getProfileEmployee')}}">
                             @elseif(Auth::user()->level == 2)
-                                <a class="dropdown-item" href="{{route('getProfileEmployer', ['username'=> Auth::user()->username ])}}">
+                                <a class="dropdown-item" href="{{route('getProfileEmployer')}}">
                             @endif
                             <i class="far fa-user-circle"></i>
                             Thông tin tài khoản

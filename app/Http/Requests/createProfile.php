@@ -33,7 +33,7 @@ class createProfile extends FormRequest
             'txtcity'=>'required',
             'txtdistrict'=>'required',
 //            'description'=>'required'
-            'txtpassword' => 'required|min:5|confirmed',
+//            'txtpassword' => 'required|min:5|confirmed',
         ];
     }
     function messages()

@@ -1,5 +1,7 @@
 @extends("layouts.master")
-@section('title', "Trang cá nhân của asdsadsads")
+@section('title')
+
+@endsection
 @section('content')
     <div class="container">
         <div class="container user-profile-image">

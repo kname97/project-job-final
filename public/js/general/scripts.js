@@ -133,8 +133,16 @@ $(document).ready(function () {
     //select2 in postJob
     $('#select-categoryJob').select2({
         placeholder: 'Chọn danh mục',
-        containerCssClass: "form-control"
+        closeOnSelect: false
         // },
+    });
+    $('#category-select').select2({
+        placeholder: 'Chọn ngành / Nghề',
+        closeOnSelect: false
+    });
+    $('#location-select').select2({
+        placeholder: 'Chọn địa điểm',
+        closeOnSelect: false
     });
 
     // trumbowyg
@@ -184,16 +192,8 @@ $(document).ready(function () {
     //     }
 
     // });
-    $("input[name='minsalary']").datepicker({
-        format: 'dd-mm-yyyy',
-        changeMonth: true,
-        changeYear: true
-    });
-    $("input[name='maxsalary']").datepicker({
 
-        format: 'dd-mm-yyyy',
-        changeMonth: true,
-        changeYear: true
 
-    });
 });
+
+

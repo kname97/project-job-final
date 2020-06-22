@@ -2,7 +2,10 @@
 @section('title','Chào mừng bạn đến với chúng tôi')
 @section('content')
     <div class="back-ground-index">
-            @include('form.findJob')
+        <div class="container" id="form-find-jobs">
+
+            @include('form.formFindJob')
+        </div>
     </div>
     <div class="container">
         <section class="top-jobs" id="feature-jobs">

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
 /**
  * App\Models\Employees
@@ -41,10 +40,9 @@ use Illuminate\Notifications\Notifiable;
  */
 class Employees extends Model
 {
-    use Notifiable;
     protected $table ='employees';
     protected $fillable =[
-        'id','lastname','firstname','gender','dob','description','phone','address','city','district',
+        'lastname','firstname','gender','dob','description','phone','address','city','district',
     ];
     protected $hidden = [
         'created_at','updated_at'

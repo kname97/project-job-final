@@ -11,12 +11,17 @@ use App\Models\Employers;
 use App\Http\Requests\loginRequest;
 use App\Http\Requests\registerRequest;
 use Illuminate\Support\MessageBag;
+use App\Http\Requests\updatePassword;
+use Hash;
+use App\Models\Jobcategories;
+use Illuminate\Support\Facades\View;
 
 
 class userController extends Controller
 {
     function __contruct()
     {
+
         $this->middleware('guest');
     }
 
@@ -84,7 +89,6 @@ class userController extends Controller
         $email = $request->input('txtemail');
         $password = $request->input('txtpassword');
         $level = $request->input('txtlevel');
-
         $user = new User;
         $user->username = $username;
         $user->email = $email;
@@ -94,13 +98,13 @@ class userController extends Controller
         if ($checkRequest == true) {
             if ($level == 1) {
                 Auth::loginUsingId($user->id);
-                return redirect(route('getProfileEmployee',['username'=>Auth::user()->username]))->with('atention-register','Chào mừng người tìm việc đã tạo tài khoảng thành công');
+                return redirect(route('getProfileEmployee'))->with('atention-register', 'Chào mừng người tìm việc đã tạo tài khoảng thành công');
 //                return redirect(route('home'))->with('atention',
 //                    'Chào mừng người tìm việc đã tạo tài khoảng thành công');
             }
             if ($level == 2) {
                 Auth::loginUsingId($user->id);
-                return redirect(route('getProfileEmployee',['username'=>Auth::user()->username]))->with('atention-register','Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
+                return redirect(route('getProfileEmployee'))->with('atention-register', 'Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
 //                return redirect(route('home'))->with('atention',
 //                    'Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
             }
@@ -109,4 +113,28 @@ class userController extends Controller
         }
     }
 
+    // update password
+    function updatePassword(updatePassword $request)
+    {
+        $password = $request->input('new_password');
+        $user = User::find(Auth::id());
+        $user->password = Hash::make($password);
+        if ($user->save() == true) {
+            toastr()->Success('Thay đổi mật khẩu thành công');
+
+            if (Auth::user()->level == 1) {
+//                redirect(route('getProfileEmployee'));
+
+                return redirect()->route('getProfileEmployee');
+            } elseif (Auth::user()->level == 2) {
+//                redirect(route('getProfileEmployer'));
+
+                return redirect()->route('getProfileEmployer');
+            }
+        }
+        toastr()->Error('Thay đổi mật khẩu không thành công');
+        return redirect()->back();
+    }
+
+    // get chọn ngành nghề in form
 }
