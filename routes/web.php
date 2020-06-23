@@ -25,18 +25,18 @@ Route::post('/cap-nhat-mat-khau','userController@updatePassword')->name('updateP
 
 // admin
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/dang-nhap', 'admin\AdminController@getLoginAdmin')->name('getadminLogin');
-    Route::post('/dang-nhap', 'admin\AdminController@postLoginAdmin')->name('adminLogin');
-    Route::get('/dang-xuat', 'admin\AdminController@logoutAdmin')->name('adminLogout');
-    Route::get('/', 'admin\AdminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
-    Route::get('/manage-accounts', 'admin\defineAdminController@getAccounts')->name('adminAccount');
-    Route::get('/list-accounts', 'admin\defineAdminController@getListAcounts')->name('listAccounts');
-    Route::get('/manage-applies', 'admin\defineAdminController@getApplies')->name('adminApply');
-    Route::get('/manage-reviews', 'admin\defineAdminController@getReviews')->name('adminReview');
-    Route::get('/manage-ranks', 'admin\defineAdminController@getRanks')->name('adminRank');
-    Route::get('/manage-accounts/delete/{id}', 'admin\defineAdminController@deleteAccount')->name('deleteAccount');
-    Route::get('/manage-accounts/edit/{id}', 'admin\defineAdminController@editAccount')->name('editAccount');
-    Route::post('manage-accounts/save', 'admin\defineAdminController@saveAccount')->name('saveAccount');
+    Route::get('/dang-nhap', 'Admin\AdminController@getLoginAdmin')->name('getadminLogin');
+    Route::post('/dang-nhap', 'Admin\AdminController@postLoginAdmin')->name('adminLogin');
+    Route::get('/dang-xuat', 'Admin\AdminController@logoutAdmin')->name('adminLogout');
+    Route::get('/', 'Admin\AdminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
+    Route::get('/manage-accounts', 'Admin\defineAdminController@getAccounts')->name('adminAccount');
+    Route::get('/list-accounts', 'Admin\defineAdminController@getListAcounts')->name('listAccounts');
+    Route::get('/manage-applies', 'Admin\defineAdminController@getApplies')->name('adminApply');
+    Route::get('/manage-reviews', 'Admin\defineAdminController@getReviews')->name('adminReview');
+    Route::get('/manage-ranks', 'Admin\defineAdminController@getRanks')->name('adminRank');
+    Route::get('/manage-accounts/delete/{id}', 'Admin\defineAdminController@deleteAccount')->name('deleteAccount');
+    Route::get('/manage-accounts/edit/{id}', 'Admin\defineAdminController@editAccount')->name('editAccount');
+    Route::post('manage-accounts/save', 'Admin\defineAdminController@saveAccount')->name('saveAccount');
 });
 //employer
 
