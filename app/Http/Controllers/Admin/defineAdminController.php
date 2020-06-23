@@ -9,7 +9,7 @@ use Yajra\DataTables\DataTables;
 use Carbon\Carbon;
 use App\User;
 
-class defineAdminController extends Controller
+class DefineAdminController extends Controller
 {
    function __contruct()
    {

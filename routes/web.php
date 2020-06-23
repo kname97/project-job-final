@@ -29,14 +29,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/dang-nhap', 'Admin\AdminController@postLoginAdmin')->name('adminLogin');
     Route::get('/dang-xuat', 'Admin\AdminController@logoutAdmin')->name('adminLogout');
     Route::get('/', 'Admin\AdminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
-    Route::get('/manage-accounts', 'Admin\defineAdminController@getAccounts')->name('adminAccount');
-    Route::get('/list-accounts', 'Admin\defineAdminController@getListAcounts')->name('listAccounts');
-    Route::get('/manage-applies', 'Admin\defineAdminController@getApplies')->name('adminApply');
-    Route::get('/manage-reviews', 'Admin\defineAdminController@getReviews')->name('adminReview');
-    Route::get('/manage-ranks', 'Admin\defineAdminController@getRanks')->name('adminRank');
-    Route::get('/manage-accounts/delete/{id}', 'Admin\defineAdminController@deleteAccount')->name('deleteAccount');
-    Route::get('/manage-accounts/edit/{id}', 'Admin\defineAdminController@editAccount')->name('editAccount');
-    Route::post('manage-accounts/save', 'Admin\defineAdminController@saveAccount')->name('saveAccount');
+    Route::get('/manage-accounts', 'Admin\DefineAdminController@getAccounts')->name('adminAccount');
+    Route::get('/list-accounts', 'Admin\DefineAdminController@getListAcounts')->name('listAccounts');
+    Route::get('/manage-applies', 'Admin\DefineAdminController@getApplies')->name('adminApply');
+    Route::get('/manage-reviews', 'Admin\DefineAdminController@getReviews')->name('adminReview');
+    Route::get('/manage-ranks', 'Admin\DefineAdminController@getRanks')->name('adminRank');
+    Route::get('/manage-accounts/delete/{id}', 'Admin\DefineAdminController@deleteAccount')->name('deleteAccount');
+    Route::get('/manage-accounts/edit/{id}', 'Admin\DefineAdminController@editAccount')->name('editAccount');
+    Route::post('manage-accounts/save', 'Admin\DefineAdminController@saveAccount')->name('saveAccount');
 });
 //employer
 
