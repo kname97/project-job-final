@@ -10,7 +10,7 @@ use App\Http\Requests\loginRequest;
 use App\User;
 use Validator;
 
-class adminController extends Controller
+class AdminController extends Controller
 {
     function getLoginAdmin()
     {

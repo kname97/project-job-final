@@ -25,10 +25,10 @@ Route::post('/cap-nhat-mat-khau','userController@updatePassword')->name('updateP
 
 // admin
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/dang-nhap', 'admin\adminController@getLoginAdmin')->name('getadminLogin');
-    Route::post('/dang-nhap', 'admin\adminController@postLoginAdmin')->name('adminLogin');
-    Route::get('/dang-xuat', 'admin\adminController@logoutAdmin')->name('adminLogout');
-    Route::get('/', 'admin\adminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
+    Route::get('/dang-nhap', 'admin\AdminController@getLoginAdmin')->name('getadminLogin');
+    Route::post('/dang-nhap', 'admin\AdminController@postLoginAdmin')->name('adminLogin');
+    Route::get('/dang-xuat', 'admin\AdminController@logoutAdmin')->name('adminLogout');
+    Route::get('/', 'admin\AdminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
     Route::get('/manage-accounts', 'admin\defineAdminController@getAccounts')->name('adminAccount');
     Route::get('/list-accounts', 'admin\defineAdminController@getListAcounts')->name('listAccounts');
     Route::get('/manage-applies', 'admin\defineAdminController@getApplies')->name('adminApply');
