@@ -136,5 +136,5 @@ class userController extends Controller
         return redirect()->back();
     }
 
-    // get chọn ngành nghề in form
+
 }

@@ -16,4 +16,8 @@ class reviewController extends Controller
     {
         return view('employee.reviewEmployer');
     }
+    // store
+    function  storeReview(Request $request){
+
+    }
 }
