@@ -21,7 +21,7 @@ class employeeController extends Controller
     function getProfile()
     {
         $user = Auth::user()->id;
-        $employee = User::find($user);
+        $employee = User::findOrFail($user);
         return view('employee.profileEmployee', compact('employee'));
     }
 

@@ -558,3 +558,9 @@ a:hover {
     text-align: center;
     width: 33%;
 }
+
+/* review company */
+.list-company {
+    background-color: white;
+    border: 1px solid black;
+}

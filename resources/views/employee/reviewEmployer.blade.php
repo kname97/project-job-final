@@ -14,10 +14,15 @@
 
                     <div class="collapse navbar-collapse"  id="navbarText">
                         <ul class="navbar-nav">
-                            <li> <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i>  Home</a></li>
-                            <li> <a class="nav-link" href="#"><i class="fa fa-file-text" aria-hidden="true"></i>  About</a></li>
+                            <li> <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i>  Top đánh giá nhiều
+                                    nhất
+                                </a></li>
+                            <li> <a class="nav-link" href="#"><i class="fa fa-file-text" aria-hidden="true"></i>  Đánh
+                                    giá tích cực nhất</a></li>
                             <li>
-                                <a class="nav-link" href="#"><i class="fa fa-sticky-note" aria-hidden="true"></i>  Historical </a>
+                                <a class="nav-link" href="#"><i class="fa fa-sticky-note" aria-hidden="true"></i>  Đánh giá
+                                    tiêu cực nhất
+                                </a>
                             </li>
                         </ul>
                     </div></div>

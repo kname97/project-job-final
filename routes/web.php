@@ -42,7 +42,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'nha-tuyen-dung'], function () {
     Route::get('/dang-tin-tuyen-dung', 'Employer\employerController@getViewPostJob')->name('getPostJob');
-    Route::get('/thong-tin-ca-nhan', 'Employer\employerController@getProfile')->name('getProfileEmployer');
+    Route::get('/thong-tin-ca-nhan/{$id}', 'Employer\employerController@getProfile')->name('getProfileEmployer');
 
     //Route::get('/dang-tin-tuyen-dung/category','Employer\postJobController@getJobcategories')->name('getCateJob');
 });

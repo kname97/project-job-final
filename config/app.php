@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Tightenco\Ziggy\ZiggyServiceProvider::class,
-//        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 //        Lord\Laroute\LarouteServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
         /*
