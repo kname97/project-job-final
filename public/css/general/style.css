@@ -564,3 +564,13 @@ a:hover {
     background-color: white;
     border: 1px solid black;
 }
+.review-list-item-img{
+    height: auto;
+    width: 90px !important;
+}
+.review-list-item-text{
+    align-self: center;
+}
+span.badge{
+    float: right;
+}

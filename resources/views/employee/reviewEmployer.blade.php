@@ -5,28 +5,88 @@
         <h1 class="text-uppercase text-center title-h1">Đánh giá nhà tuyển dụng</h1>
         @include('form.formFindJob')
         <div class="list-company">
-            <nav class="navbar navbar-expand-lg  border">
-                <div class="container">
-                    <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
 
-                    <div class="collapse navbar-collapse"  id="navbarText">
-                        <ul class="navbar-nav">
-                            <li> <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i>  Top đánh giá nhiều
-                                    nhất
-                                </a></li>
-                            <li> <a class="nav-link" href="#"><i class="fa fa-file-text" aria-hidden="true"></i>  Đánh
-                                    giá tích cực nhất</a></li>
-                            <li>
-                                <a class="nav-link" href="#"><i class="fa fa-sticky-note" aria-hidden="true"></i>  Đánh giá
-                                    tiêu cực nhất
-                                </a>
-                            </li>
-                        </ul>
-                    </div></div>
-            </nav>
+            <div class="container">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="review-list">
+                            <div class="review-list-item row">
+                                <img class="review-list-item-img col-2"
+                                     src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
+                                     alt="List user">
+                                <div class="review-list-item-text col-10">
+                                    <h3>
+                                        <a href="#">Eric Graves</a>
+                                        <span class="">
+                                            5sao
+                                        </span>
+                                        <span class="badge badge-info">
+                                            260
+                                        </span>
+                                    </h3>
+                                    <h4>Brunch this weekend?</h4>
+                                    <p> I'll be in your neighborhood doing errands</p>
+                                </div>
+                                <div class="list-item-right"></div>
+                            </div>
+                            <div class="review-list-item row">
+                                <img class="review-list-item-img col-2"
+                                     src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
+                                     alt="List user">
+                                <div class="review-list-item-text col-10">
+                                    <h3><a href="#">Catherine Crawford</a></h3>
+                                    <h4>Brunch this weekend?</h4>
+                                    <p> I'll be in your neighborhood doing errands</p>
+                                </div>
+                            </div>
+                            <div class="review-list-item row">
+                                <img class="review-list-item-img col-2"
+                                     src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
+                                     alt="List user">
+                                <div class="review-list-item-text col-10">
+                                    <h3><a href="#">Rosemary Jimenez</a></h3>
+                                    <h4>Brunch this weekend?</h4>
+                                    <p> I'll be in your neighborhood doing errands</p>
+                                </div>
+                            </div>
+                            <div class="review-list-item row">
+                                <img class="review-list-item-img col-2"
+                                     src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
+                                     alt="List user">
+                                <div class="review-list-item-text col-9">
+                                    <h3><a href="#">Guy Carpenter</a></h3>
+                                    <h4>Brunch this weekend?</h4>
+                                    <p> I'll be in your neighborhood doing errands</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pg-blue justify-content-end">
+                        <li class="page-item disabled">
+                            <a class="page-link" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link">1</a></li>
+                        <li class="page-item"><a class="page-link">2</a></li>
+                        <li class="page-item"><a class="page-link">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
         </div>
 
     </div>

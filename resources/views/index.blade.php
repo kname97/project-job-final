@@ -1,11 +1,25 @@
 @extends('layouts.master')
 @section('title','Chào mừng bạn đến với chúng tôi')
 @section('content')
-    <div class="back-ground-index">
-        <div class="container" id="form-find-jobs">
 
-            @include('form.formFindJob')
-        </div>
+        <div class=" back-ground-index jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+            <div class="text-white text-center py-5 px-4">
+
+                    <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Chào mừng đến với trang tin
+                            tuyển dụng và tìm kiếm việc làm của chúng tôi</strong></h2>
+                    <p class=" mb-5">Đây là trang mà các nhà tuyển dụng có thể dễ dàng đăng các tin tuyển dụng đẻ tìm kiếm nhân
+                        sự cho công ty tổ chức của mình và Người tìm việc có nhiều cơ hội hơn tìm kiếm các viêc làm phù hợp với
+                        bản thân.
+                    </p>
+                <div class="mt-lg-3">
+                    @include('form.formFindJob')
+                </div>
+
+
+            </div>
+
+
+
     </div>
     <div class="container">
         <section class="top-jobs" id="feature-jobs">
