@@ -89,7 +89,7 @@ class userController extends Controller
         $email = $request->input('txtemail');
         $password = $request->input('txtpassword');
         $level = $request->input('txtlevel');
-        $user = new User;
+        $user = new User();
         $user->username = $username;
         $user->email = $email;
         $user->password = bcrypt($password);
