@@ -564,6 +564,13 @@ a:hover {
     background-color: white;
     border: 1px solid black;
 }
+.review-list-item{
+    cursor: pointer;
+    padding: 20px 0;
+}
+.review-list-item:hover{
+    background-color: rgba(162, 153, 153, 0.66);
+}
 .review-list-item-img{
     height: auto;
     width: 90px !important;
@@ -571,6 +578,23 @@ a:hover {
 .review-list-item-text{
     align-self: center;
 }
+.review-list-item-text h3 a{
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.review-list-item-text h3 a:hover {
+    color: #3e8e41;
+}
 span.badge{
     float: right;
+}
+.fa-star{
+ color: #ffdd57;
+}
+
+.modal-full-width{
+    min-width: 1300px;
 }

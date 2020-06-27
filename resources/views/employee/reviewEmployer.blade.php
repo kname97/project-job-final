@@ -4,7 +4,7 @@
     <div class="container content-child">
         <h1 class="text-uppercase text-center title-h1">Đánh giá nhà tuyển dụng</h1>
         @include('form.formFindJob')
-        <div class="list-company">
+        <div class="list-company" >
 
             <div class="container">
                 <a class="navbar-brand" href="#"></a>
@@ -16,18 +16,22 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                        <div class="review-list">
-                            <div class="review-list-item row">
+                        <div class="review-list ">
+                            <div class="review-list-item row" href="#myModal" data-toggle="modal">
                                 <img class="review-list-item-img col-2"
                                      src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
                                      alt="List user">
                                 <div class="review-list-item-text col-10">
                                     <h3>
-                                        <a href="#">Eric Graves</a>
-                                        <span class="">
-                                            5sao
+                                        <a href="#">Công ty trách nhiệm hữu hạng</a>
+                                        <span class="company-rating">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                             <i class="fa fa-star" aria-hidden="true"></i>
+                                             <i class="fa fa-star" aria-hidden="true"></i>
+                                             <i class="fa fa-star" aria-hidden="true"></i>
+                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </span>
-                                        <span class="badge badge-info">
+                                        <span class="badge badge-pill badge-primary">
                                             260
                                         </span>
                                     </h3>
@@ -89,8 +93,8 @@
 
         </div>
 
-    </div>
 
+@include('employee.reviewDetailEmployer');
     </div>
 
 @endsection

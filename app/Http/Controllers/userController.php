@@ -52,6 +52,8 @@ class userController extends Controller
                     } elseif (Auth::user()->level == 2) {
                         return response()->json(['message' => 'Nhà tuyển dụng đăng nhập thành công']);
                     } else {
+                        Auth::logout();
+                        $request->session()->invalidate();
                         return response()->json(['errors' => 'Bạn không phải là nhà tuyển dụng hoặc người tìm việc']);
                     }
                 }
