@@ -46,7 +46,7 @@
                     </span>
                 @elseif(Auth::user()->level == 2)
                     <span class="navbar-text">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('getviewInforEmployer')}}" class="nav-link">
                           Giới thiệu nhà tuyển dụng
                         </a>
                     </span>
@@ -59,8 +59,7 @@
                         <button class="dropbtn-link">Quản lý tin đăng</button>
                         <div class="dropdown-content">
                             <a class="nav-link" href="{{route('getPostJob')}}">Đăng tin tuyển dụng</a>
-                            <a class="nav-link" href="#">Sửa tin tuyển dụng</a>
-                            <a class="nav-link" href="#">Xóa tin tuyển dụng</a>
+                            <a class="nav-link" href="#">Quản lý tin tuyển dụng</a>
                         </div>
                     </div>
 
@@ -69,7 +68,7 @@
                 <a class="nav-link text-capitalize dropdown" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVudfcgyMsEWu1ibVhe1TV5fgIURljQMDslLFN4HyEwNSWqdnm&usqp=CAU"
+                            src="{{asset('images/avartar/images.jpg')}}"
                             alt="Avatar" class="avatar-header">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -90,7 +89,7 @@
                 {{--                      </li>--}}
             @else
                 <span class="navbar-text">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('getviewSearch')}}" class="nav-link">
                             Việc làm
                         </a>
                     </span>

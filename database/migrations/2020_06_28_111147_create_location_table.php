@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinkProfileTable extends Migration
+class CreateLocationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateLinkProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('linkprofile', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('employee_id');
-            $table->integer('employer_id');
-            $table->boolean('comfirm');
-
+        Schema::create('locations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('city');
         });
     }
 
@@ -29,6 +26,6 @@ class CreateLinkProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linkprofile');
+        Schema::dropIfExists('locations');
     }
 }

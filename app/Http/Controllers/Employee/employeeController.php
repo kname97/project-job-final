@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Employee;
 
-use App\Models\Employees;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Http\Requests\createProfile;
-
+use App\Models\employees;
 
 class employeeController extends Controller
 {
@@ -21,47 +20,30 @@ class employeeController extends Controller
     function getProfile()
     {
         $user = Auth::user()->id;
-        $employee = User::findOrFail($user);
-        return view('employee.profileEmployee', compact('employee'));
+        $employees = User::findOrFail($user);
+        $profileEmployees = employees::find($user,'user_id')->first();
+        return view('employee.profileEmployee', compact('employees','profileEmployees'));
     }
-
-//     create profile
-    function profileStore(createProfile $request)
-    {
-
-        $user_id = $request->input('user_id');
-        $firstname = $request->input('txtfirstname');
-        $lastname = $request->input('txtlastname');
-        $address = $request->input('txtaddress');
-        $gender = $request->input('gender');
-        $dob = $request->input('txtdob');
-        $city = $request->input('txtcity');
-        $district = $request->input('txtdistrict');
-        $description = $request->input('description-profile');
-        $employeeStore = new Employees;
-        $employeeStore->user_id = $user_id;
-        $employeeStore->firstname = $firstname;
-        $employeeStore->lastname = $lastname;
-        $employeeStore->address = $address;
-        $employeeStore->gender = $gender;
-        $employeeStore->dob = $dob;
-        $employeeStore->city = $city;
-        $employeeStore->district = $district;
-        $employeeStore->description = $description;
-        $checkEmployeeStore = $employeeStore->save();
-        if($checkEmployeeStore == true){
-            toastr()->success('cập nhật thông tin cá nhân thành công');
-            return redirect()->back();
-        }else{
-            toastr()->error('cập nhật thông tin thất bại vui lòng kiểm tra lại các trường bên dưới');
-            return redirect()->back();
-
-        }
-    }
-
 //    update profile
-    function profilUpdate()
+    function profilUpdate(createProfile $request)
     {
+        $employee_id = $request->employee_id;
+        $employeeUpdate = employees::find($employee_id)->first();
+        $employeeUpdate->firstname = $request->txtfirstname;
+        $employeeUpdate->university = $request->txtuniversity;
+        $employeeUpdate->lastname = $request->txtlastname;
+        $employeeUpdate->gender = $request->gender;
+        $employeeUpdate->dob = $request->txtdob;
+        $employeeUpdate->description = $request->txtdescription;
+        $employeeUpdate->phone = $request->txtphone;
+        $employeeUpdate->address = $request->txtaddress;
+        $employeeUpdate->city = $request->txtcity;
+        $employeeUpdate->district = $request->txtdistrict;
+        $employeeUpdate->tag_skill = $request->txttag_skill;
+//        $employeeUpdate->hobby = $request->txthobby;
+        $employeeUpdate->university = $request->txtuniversity;
+        $employeeUpdate->save();
+        return redirect()->back();
 
     }
 }

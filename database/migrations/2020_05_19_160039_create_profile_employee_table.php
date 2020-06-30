@@ -15,15 +15,20 @@ class CreateProfileEmployeeTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->enum('gender',['male','female']);
-            $table->date('dob');
+            $table->string('lastname')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('avartar')->nullable();
+            $table->string('cover')->nullable();
+            $table->enum('gender',['nam','nữ','không xác định'])->default('không xác định');
+            $table->date('dob')->nullable();
             $table->longText('description')->nullable();
-            $table->string('phone');
-            $table->string('address');
-            $table->string('city');
-            $table->string('district');
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('district')->nullable();
+            $table->string('tag_skill')->nullable();
+            $table->string('hobby')->nullable();
+            $table->string('university')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });

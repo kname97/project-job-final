@@ -8,9 +8,13 @@ use App\Models\Jobcategories;
 use DB;
 class postJobController extends Controller
 {
-    function getJobcategories(){
-        $cateJobs = DB::table('jobcategories')->get();
-//        return response()->json($cateJobs);
-        return view('employer.postJob',compact('cateJobs'));
-    }
+  function __construct()
+  {
+      $this->middleware('employer');
+  }
+
+//  store jobs
+function jobStore(){
+
+}
 }

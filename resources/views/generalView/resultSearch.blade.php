@@ -1,48 +1,29 @@
 @extends('layouts.master')
-@section('title','Chào mừng bạn đến với chúng tôi')
+@section('title',' Kết quả tìm kiếm')
 @section('content')
-    <div class="card-img " >
-        <div class="text-white text-center py-5 px-4">
-            <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Chào mừng đến với trang tin
-                    tuyển dụng và tìm kiếm việc làm của chúng tôi</strong></h2>
-            <p class=" mb-5">Đây là trang mà các nhà tuyển dụng có thể dễ dàng đăng các tin tuyển dụng đẻ tìm kiếm nhân
-                sự cho công ty tổ chức của mình và Người tìm việc có nhiều cơ hội hơn tìm kiếm các viêc làm phù hợp với
-                bản thân.
-            </p>
-        </div>
-        <div class="mt-lg-3">
+    <div class="container content-child">
+        <h1 class="text-uppercase text-center title-h1">Bảng xếp hạng nhà tuyển dụng</h1>
+        <div class="search-content">
+            <h4> Tìm kiếm các công việc cần thiết</h4>
             <div class="search-content-background">
                 @include('form.formFindJob')
-            </div>
-        </div>
-    </div>
-    <div class="container">
-
-        <div class="row" id="title-topper">
-            <div class=" col-12 text-center">
-                <h2>Các tin tuyển dụng</h2>
-            </div>
-            <div class="col-12 text-bold text-center">
-                <h2>
-                    Tin tuyển dụng <span class="txt-primary">mới nhất</span>
-                </h2>
             </div>
         </div>
         <section id="list-jobs" class="top-jobs">
             <div class="container" id="feature-jobs">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-danger">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -54,21 +35,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-success">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -80,21 +65,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-light">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -106,21 +95,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-warning">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -132,21 +125,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-secondary">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -158,21 +155,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-dark">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -184,21 +185,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-pill">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -210,21 +215,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-info">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -236,21 +245,25 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 feature-job">
+                    <div class="col-12 feature-job">
                         <div class="feature-job-item">
                             <div class="row">
-                                <div class="col-xl-3 col-logo">
+                                <div class="col-2 col-logo">
                                     <a href="">
-                                        <div class="box-logo">
+                                        <div class="box-logo-search">
                                             <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg"
                                                  class="img-size" alt="">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-xl-9 col-title">
+                                <div class="col-8 col-title">
                                     <div class="title">
                                         <span class="badge badge-primary">New</span>
                                         <a href="#" class="text-uppercase">tiêu đề cần tuyển tiêu đề cần tuyển tiêu đề cần
@@ -262,120 +275,15 @@
                                         <i class="fas fa-money-bill"></i> thỏa thuân
                                     </div>
                                 </div>
+                                <div class="col-2 col-btn">
+                                    <button class="btn btn-danger">Lưu</button>
+                                    <button class="btn btn-success">nộp đơn</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        {{-- feature employer --}}
-        <div class="row" id="title-topper">
-            <div class=" col-12 text-center">
-                <h2>Các nhà tuyển dụng</h2>
-            </div>
-            <div class="col-12 text-bold text-center">
-                <h2>
-                    Nhà tuyển dụng <span class="txt-primary">nổi bật</span>
-                </h2>
-            </div>
-        </div>
-        <section class="top-companies">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-xs-12 feature-company ">
-                        <a href="#" class="top-company">
-                            <div class="company-logo text-center">
-                                <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg" class="img-size"
-                                     alt="">
-                            </div>
-                            <div class="company-name text-center">
-                                công ty tên là a
-                            </div>
-                            <div class="company-footer text-center">
-                                <span class="company-footer-jobs"> <span class="link">11 tin</span></span>
-                                <span class="company-footer-location">Hồ Chí Minh</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-xs-12 feature-company ">
-                        <a href="#" class="top-company">
-                            <div class="company-logo text-center">
-                                <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg" class="img-size"
-                                     alt="">
-                            </div>
-                            <div class="company-name text-center">
-                                công ty tên là a
-                            </div>
-                            <div class="company-footer text-center">
-                                <span class="company-footer-jobs"> <span class="link">11 tin</span></span>
-                                <span class="company-footer-location">Hồ Chí Minh</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-xs-12 feature-company ">
-                        <a href="#" class="top-company">
-                            <div class="company-logo text-center">
-                                <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg" class="img-size"
-                                     alt="">
-                            </div>
-                            <div class="company-name text-center">
-                                công ty tên là a
-                            </div>
-                            <div class="company-footer text-center">
-                                <span class="company-footer-jobs"> <span class="link">11 tin</span></span>
-                                <span class="company-footer-location">Hồ Chí Minh</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-xs-12 feature-company ">
-                        <a href="#" class="top-company">
-                            <div class="company-logo text-center">
-                                <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg" class="img-size"
-                                     alt="">
-                            </div>
-                            <div class="company-name text-center">
-                                công ty tên là a
-                            </div>
-                            <div class="company-footer text-center">
-                                <span class="company-footer-jobs"> <span class="link">11 tin</span></span>
-                                <span class="company-footer-location">Hồ Chí Minh</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-xs-12 feature-company ">
-                        <a href="#" class="top-company">
-                            <div class="company-logo text-center">
-                                <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg" class="img-size"
-                                     alt="">
-                            </div>
-                            <div class="company-name text-center">
-                                công ty tên là a
-                            </div>
-                            <div class="company-footer text-center">
-                                <span class="company-footer-jobs"> <span class="link">11 tin</span></span>
-                                <span class="company-footer-location">Hồ Chí Minh</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-xs-12 feature-company ">
-                        <a href="#" class="top-company">
-                            <div class="company-logo text-center">
-                                <img src="https://static.topcv.vn/company_logos/apax-leader-5bfcf4d84ef8e_rs.jpg" class="img-size"
-                                     alt="">
-                            </div>
-                            <div class="company-name text-center">
-                                công ty tên là a
-                            </div>
-                            <div class="company-footer text-center">
-                                <span class="company-footer-jobs"> <span class="link">11 tin</span></span>
-                                <span class="company-footer-location">Hồ Chí Minh</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
     </div>
 @endsection

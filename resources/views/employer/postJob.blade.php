@@ -8,6 +8,7 @@
                     <h2 id="heading">Đăng tin tuyển dụng</h2>
                     <form id="msform">
                         <!-- progressbar -->
+                        <input type="hidden" value="{{auth()->user()->id}}">
                         <div id="progressbar">
                             <li class="active" id="basic"><strong>Thông tin cơ bản</strong></li>
                             <li id="detail"><strong>Nội dung chi tiết</strong></li>
@@ -26,30 +27,27 @@
                                         <h2 class="fs-title">Thông tin cơ bản</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Bước 1 - 1</h2>
+                                        <h2 class="steps">Bước 1</h2>
                                     </div>
                                 </div>
                                 <label class="fieldlabels">Tiêu đề: *</label>
-                                <input type="text" name="title-job" id="title-job"
+                                <input type="text" name="title-job" class="title-job form-control"
                                        placeholder="Tiêu đề đơn tuyển dụng"/>
                                 <label class="fieldlabels">Trực thuộc: *</label>
                                 <div class="input-group mb-3">
 
-                                    <select class="custom-select" id="select-categoryJob">
+                                    <select class="custom-select" name="select-categoryJob" id="select-categoryJob">
                                         <option value=""></option>
-                                        {{--                                        <option value="{{$cateJob['id']}}">{{$cateJob['name']}}</option>--}}
                                         @foreach($jobCategory as $cateJob)
                                             <option value="{{$cateJob->id}}">{{$cateJob->name}}</option>
                                         @endforeach
 
                                     </select>
                                 </div>
-                                <label class="fieldlabels">Mô tả : *</label>
-                                <textarea class="form-control rounded-0" id="description-postjob"
-                                          rows="10"></textarea>
-
+                                <label class="fieldlabels">Mô tả : </label>
+                                <textarea class="form-control rounded-0" id="description-postjob" rows="10"></textarea>
                             </div>
-                            <input type="button" name="next" class="next action-button" value="Next"/>
+                            <button type="button" name="next" class="next action-button" >Tiếp</button>
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -58,12 +56,12 @@
                                         <h2 class="fs-title">Thông tin chi tiết:</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Bước 2 - 4</h2>
+                                        <h2 class="steps">Bước 2 </h2>
                                     </div>
                                 </div>
                                 <label class="fieldlabels">Loại công việc : *</label>
                                 <div class="input-group mb-3">
-                                    <select class="custom-select" id="inputGroupSelect01">
+                                    <select class="type-job input-group form-control" name="type-job" id="type-job">
                                         <option selected>Chọn...</option>
                                         <option value="1">Bán thời gian</option>
                                         <option value="2">Toàn thời gian</option>
@@ -73,30 +71,32 @@
                                 </div>
                                 <div class="form-inline">
                                     <div class="form-group">
-                                        <label class="fieldlabels"> Lương tối thiểu *:</label>
-                                        <input class=" date form-control  " type="text" name="minsalary" >
+                                        <label class="fieldlabels"> Lương tối thiểu :</label>
+                                        <input class=" form-control  " type="text" name="minsalary" id="minsalary" >
                                     </div>
                                     <div class="form-group">
-                                        <label class="fieldlabels mx-sm-5"> Lương tối đa *:</label>
-                                        <input class=" date form-control mx-sm-5" type="text" name="maxsalary" >
+                                        <label class="fieldlabels mx-sm-5"> Lương tối đa :</label>
+                                        <input class=" form-control mx-sm-5" type="text" name="maxsalary" id="maxsalary" >
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="negotiable">
+                                        <input type="checkbox" class="custom-control-input" name="negotiable" id="negotiable">
                                         <label class="custom-control-label" for="negotiable">Thỏa thuận</label>
                                     </div>
                                 </div>
                                 <label class="fieldlabels">Ngày bắt đầu : *</label>
-                                <input type="text" name="companyname"/>
+                                <input type="text" class="form-control" name="companyname" />
+                                <label class="fieldlabels">Ngày kết thúc : *</label>
+                                <input type="text" class="form-control" name="companyname"/>
                                 <label class="fieldlabels">Số lượng cần tuyển: *</label>
-                                <input type="number" name="number-employee"/>
+                                <input type="number" class="form-control" name="number-employee"/>
                                 <label class="fieldlabels">Chức vụ: *</label>
-                                <input type="text" name="position" placeholder="Tên chức vụ"/>
+                                <input type="text" class="form-control" name="position" placeholder="Tên chức vụ"/>
                                 <label class="fieldlabels">Yêu cầu kinh nghiệm: *</label>
                                 <input type="number" name="exp"/>
                             </div>
-                            <input type="button" name="next" class="next action-button" value="Next"/>
-                            <input type="button" name="previous" class="previous action-button-previous"
-                                   value="Previous"/>
+                            <button type="button" name="next" class="next action-button" >Tiếp</button>
+                            <button type="button" name="previous" class="previous action-button-previous" >Quay lại</button>
+
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -105,18 +105,18 @@
                                         <h2 class="fs-title">Thông tin liên hệ :</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Bước 3 - 4</h2>
+                                        <h2 class="steps">Bước 3</h2>
                                     </div>
                                 </div>
                                 <label class="fieldlabels">Địa chỉ : *</label>
-                                <input type="text" name="address"/>
+                                <input type="text" class="form-control" name="address"/>
                                 <label class="fieldlabels">Email: *</label>
-                                <input type="number" name="email"/>
+                                <input type="number" class="form-control" name="email"/>
                                 <label class="fieldlabels">Số điện thoại: *</label>
-                                <input type="number" name="phone"/>
+                                <input type="number" class="form-control" name="phone"/>
                             </div>
-                            <input type="button" name="next" class="next action-button" value="Submit"/> <input
-                                type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <<button type="button" name="next" class="next action-button" >Submit</button>
+                            <button type="button" name="previous" class="previous action-button-previous" >Quay lại</button>
                         </fieldset>
                         <fieldset>
                             <div class="form-card">

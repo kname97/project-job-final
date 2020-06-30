@@ -130,19 +130,16 @@ $(document).ready(function () {
     });
 
 
-    //select2 in postJob
+    //select2 in postJobs
     $('#select-categoryJob').select2({
         placeholder: 'Chọn danh mục',
-        closeOnSelect: false
         // },
     });
     $('#category-select').select2({
         placeholder: 'Chọn ngành / Nghề',
-        closeOnSelect: false
     });
     $('#location-select').select2({
         placeholder: 'Chọn địa điểm',
-        closeOnSelect: false
     });
 
     // trumbowyg
@@ -180,7 +177,23 @@ $(document).ready(function () {
         ],
         autogrow: true
     });
-
+    $('#content-review').trumbowyg({
+        lang: 'vi',
+        btns: [
+            ['viewHTML'],
+            ['formatting'],
+            ['historyUndo','historyRedo'],
+            ['strong', 'em', 'del'],
+            ['align'],
+            ['foreColor', 'backColor'],
+            ['link'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen'],
+        ],
+        // autogrow: true
+    });
     // checked begotiable
     // $( "#negotiable" ).on( "click", function() {
     //     if( $('#negotiable:checkbox:checked').length > 0){
@@ -196,4 +209,10 @@ $(document).ready(function () {
 
 });
 
-
+//fix overlay
+$(document).ready(function () {
+    $('#negotiable').change(function() {
+        $('#minsalary').attr('disabled',this.checked);
+        $('#maxsalary').attr('disabled',this.checked);
+    });
+});

@@ -22,6 +22,7 @@ Route::post('/dang-ky', 'userController@postRegisUser')->name('createUser');
 Route::get('/dang-xuat', 'userController@logoutUser');
 Route::get('/demo', 'generalController@getDemo');
 Route::post('/cap-nhat-mat-khau','userController@updatePassword')->name('updatePassword');
+Route::get('/tim-kiem-viec-lam','userController@getviewSearchJob')->name('getviewSearch');
 
 // admin
 Route::group(['prefix' => 'admin'], function () {
@@ -29,21 +30,21 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/dang-nhap', 'Admin\AdminController@postLoginAdmin')->name('adminLogin');
     Route::get('/dang-xuat', 'Admin\AdminController@logoutAdmin')->name('adminLogout');
     Route::get('/', 'Admin\AdminController@getAdminHome')->name('adminHome')->middleware('checkAdmin');
-    Route::get('/manage-accounts', 'Admin\DefineAdminController@getAccounts')->name('adminAccount');
-    Route::get('/list-accounts', 'Admin\DefineAdminController@getListAcounts')->name('listAccounts');
-    Route::get('/manage-applies', 'Admin\DefineAdminController@getApplies')->name('adminApply');
-    Route::get('/manage-reviews', 'Admin\DefineAdminController@getReviews')->name('adminReview');
-    Route::get('/manage-ranks', 'Admin\DefineAdminController@getRanks')->name('adminRank');
-    Route::get('/manage-accounts/delete/{id}', 'Admin\DefineAdminController@deleteAccount')->name('deleteAccount');
-    Route::get('/manage-accounts/edit/{id}', 'Admin\DefineAdminController@editAccount')->name('editAccount');
-    Route::post('manage-accounts/save', 'Admin\DefineAdminController@saveAccount')->name('saveAccount');
+    Route::get('/quan-ly-tai-khoan', 'Admin\DefineAdminController@getAccounts')->name('adminAccount');
+    Route::get('/danh-sach-tai-khoan', 'Admin\DefineAdminController@getListAcounts')->name('listAccounts');
+    Route::get('/quan-ly-don-xin-viec', 'Admin\DefineAdminController@getApplies')->name('adminApply');
+    Route::get('/quan-ly-nhan-xet', 'Admin\DefineAdminController@getReviews')->name('adminReview');
+    Route::get('/quan-ly-bang-xep-hang', 'Admin\DefineAdminController@getRanks')->name('adminRank');
+    Route::get('/quan-ly-tai-khoan/delete/{id}', 'Admin\DefineAdminController@deleteAccount')->name('deleteAccount');
+    Route::get('/quan-ly-tai-khoan/edit/{id}', 'Admin\DefineAdminController@editAccount')->name('editAccount');
+    Route::post('/quan-ly-tai-khoan/save', 'Admin\DefineAdminController@saveAccount')->name('saveAccount');
 });
 //employer
 
 Route::group(['prefix' => 'nha-tuyen-dung'], function () {
     Route::get('/dang-tin-tuyen-dung', 'Employer\employerController@getViewPostJob')->name('getPostJob');
-    Route::get('/thong-tin-ca-nhan/{$id}', 'Employer\employerController@getProfile')->name('getProfileEmployer');
-
+    Route::get('/thong-tin-ca-nhan', 'Employer\employerController@getProfile')->name('getProfileEmployer');
+    Route::get('/','Employer\employerController@getviewInforEmployer')->name('getviewInforEmployer');
     //Route::get('/dang-tin-tuyen-dung/category','Employer\postJobController@getJobcategories')->name('getCateJob');
 });
 
@@ -56,6 +57,7 @@ Route::group(['prefix' => 'nguoi-tim-viec'], function () {
     Route::get('/danh-gia-nha-tuyen-dung', 'Employee\reviewController@index')->name('getViewReview');
     Route::get('/yeu-thich-ntd', 'Employee\wishlistEmployerController@index')->name('getViewWishlistEmployer');
     Route::get('/yeu-thich-viec', 'Employee\wishlistJobController@index')->name('getViewWishlistJob');
+    Route::post('/thong-tin-ca-nhan/cap-nhat/{id}','Employee\employeeController@profilUpdate')->name('updateProfile');
 
 
 });

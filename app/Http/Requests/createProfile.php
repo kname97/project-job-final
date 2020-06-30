@@ -39,8 +39,8 @@ class createProfile extends FormRequest
     function messages()
     {
         return [
-            'txtfirstname.required'=>'bạn chưa nhập họ' ,
-            'txtlastname.required'=>'bạn chưa nhập tên' ,
+            'txtfirstname.required'=>'bạn chưa nhập tên' ,
+            'txtlastname.required'=>'bạn chưa nhập họ' ,
             'txtaddress.required'=>'bạn chưa nhập địa chỉ' ,
             'gender.required'=>'bạn chưa chọn giới tính' ,
             'txtdob.required'=>'bạn chưa nhập ngày sinh' ,

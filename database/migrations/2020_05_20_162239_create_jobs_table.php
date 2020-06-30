@@ -16,16 +16,14 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title',60);
-            $table->longText('desciption');
-            $table->enum('jobtype',['fulltime','parttime']);
-            $table->string('minsalary');
-            $table->string('maxsalary');
-            $table->boolean(' negotiable');
-            $table->integer('amount');
-            $table->string('position');
-            $table->integer('exp');
+            $table->longText('desciption')->nullable();
+            $table->string('jobtype');
+            $table->string('minsalary')->nullable();
+            $table->string('maxsalary')->nullable();
+            $table->boolean(' negotiable')->default(0);
+            $table->string('position')->nullable();
+            $table->integer('exp')->nullable();
             $table->date('startdate');
-            $table->string('contact');
             $table->string('email');
             $table->string('phone');
             $table->integer('user_id');

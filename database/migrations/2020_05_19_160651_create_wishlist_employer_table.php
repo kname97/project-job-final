@@ -13,7 +13,7 @@ class CreateWishlistEmployerTable extends Migration
      */
     public function up()
     {
-        Schema::create('wishlistemployer', function (Blueprint $table) {
+        Schema::create('wishlistemployers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('employee_id');
             $table->integer('job_id');

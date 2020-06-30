@@ -15,20 +15,17 @@ class employerController extends Controller
      function checkEmployer(){
 
      }
-     function getProfile($username){
+     function getProfile(){
 
         return view('employer.profileEmployer');
      }
     function getViewPostJob(){
-        if (Auth::check())
-        {
-            $cateJobs = DB::table('jobcategories')->get();
-//        return response()->json($cateJobs);
-            return view('employer.postJob',compact('cateJobs'));
-//            return view('employer.postJob');
-        }
-        return back();
 
+            return view('employer.postJob');
+
+    }
+    function getviewInforEmployer() {
+        return view('employer.manageInfor');
     }
     function postJob(Request $request){
 

@@ -17,22 +17,13 @@
 </head>
 <body class=" bg-light">
 @include('layouts.header')
-@if(session('atention'))
-    <div class="alert alert-danger text-center alert-dismissible fade show" style="margin-bottom: 0px !important" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <strong >
-            {{session('atention')}}
-        </strong>
-    </div>
-@endif
+
  @if(session('atention-register'))
    <div class="alert alert-success text-center alert-dismissible fade show" style="margin-bottom: 0px !important" role="alert">
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
          <span aria-hidden="true">&times;</span>
      </button>
-     <strong >
+     <strong>
  {{session('atention-register')}}
      </strong>
    </div>
@@ -45,16 +36,16 @@
 @routes()
 <script src="{{asset('js/general/slim.min.js')}}" ></script>
 <script src="{{asset('js/general/popper.min.js')}}" ></script>
+<script src="{{asset('/js/general/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/general/jquery.min.js')}}"></script>
 <script type='text/javascript' src="{{asset('js/general/dataTable.min.js')}}"></script>
-
 <script src="{{asset('js/general/select2.full.min.js')}}"></script>
 <script src="{{asset('trumbowyg/dist/trumbowyg.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('trumbowyg/dist/langs/vi.min.js')}}"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>--}}
-<script src="{{ asset('js/general/scripts.js') }}"></script>
 @toastr_js
 @toastr_render
+<script src="{{ asset('js/general/scripts.js') }}"></script>
 </body>
 </html>

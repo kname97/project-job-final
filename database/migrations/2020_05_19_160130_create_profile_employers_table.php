@@ -15,15 +15,16 @@ class CreateProfileEmployersTable extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->date('found');
-            $table->string('lisence');
-            $table->longText('desciption');
-            $table->string('phone');
-            $table->string('skype');
-            $table->string('address');
-            $table->string('city');
-            $table->string('district');
+            $table->string('name')->nullable();
+            $table->string('avartar')->nullable();
+            $table->string('cover')->nullable();
+            $table->string('business_sector')->nullable();
+            $table->longText('desciption')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('skype')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('district')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });

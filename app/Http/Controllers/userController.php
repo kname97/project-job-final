@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\User;
-use App\Models\Employees;
-use App\Models\Employers;
+use App\Models\employees;
+use App\Models\employers;
 use App\Http\Requests\loginRequest;
 use App\Http\Requests\registerRequest;
 use Illuminate\Support\MessageBag;
@@ -24,14 +24,18 @@ class userController extends Controller
 
         $this->middleware('guest');
     }
-
+    function getviewSearchJob() {
+        if(Auth::check() && Auth::user()->level == 2){
+            return redirect(route('getviewInforEmployer'));
+        }
+        return view('generalView.resultSearch');
+    }
     // get login
     function getloginUser()
     {
-        if (Auth::check()) {
-            if (Auth::user()->level == 2) {
+        if (Auth::check() && Auth::user()->level == 2) {
+
                 return view('employer.manageInfor');
-            }
         }
         return view('index');
     }
@@ -99,12 +103,18 @@ class userController extends Controller
         $checkRequest = $user->save();
         if ($checkRequest == true) {
             if ($level == 1) {
+                $employee = new employees();
+                $employee->user_id =$user->id;
+                $employee->save();
                 Auth::loginUsingId($user->id);
                 return redirect(route('getProfileEmployee'))->with('atention-register', 'Chào mừng người tìm việc đã tạo tài khoảng thành công');
 //                return redirect(route('home'))->with('atention',
 //                    'Chào mừng người tìm việc đã tạo tài khoảng thành công');
             }
             if ($level == 2) {
+                $employer = new employers();
+                $employer->user_id = $user->id;
+                $employer->save();
                 Auth::loginUsingId($user->id);
                 return redirect(route('getProfileEmployee'))->with('atention-register', 'Chào mừng nhà tuyển dụng đã tạo tài khoảng thành công');
 //                return redirect(route('home'))->with('atention',
@@ -123,14 +133,9 @@ class userController extends Controller
         $user->password = Hash::make($password);
         if ($user->save() == true) {
             toastr()->Success('Thay đổi mật khẩu thành công');
-
             if (Auth::user()->level == 1) {
-//                redirect(route('getProfileEmployee'));
-
                 return redirect()->route('getProfileEmployee');
             } elseif (Auth::user()->level == 2) {
-//                redirect(route('getProfileEmployer'));
-
                 return redirect()->route('getProfileEmployer');
             }
         }

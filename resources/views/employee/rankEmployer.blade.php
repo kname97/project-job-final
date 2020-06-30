@@ -3,7 +3,12 @@
 @section('content')
     <div class="container content-child">
         <h1 class="text-uppercase text-center title-h1">Bảng xếp hạng nhà tuyển dụng</h1>
-        @include('form.formFindJob')
+        <div class="search-content">
+            <h4> Tìm kiếm các công việc cần thiết</h4>
+            <div class="search-content-background">
+                @include('form.formFindJob')
+            </div>
+        </div>
         <div class="row m-md-3">
             <div class="col-4 pt-3">
                 <a class="top-company" href="#">

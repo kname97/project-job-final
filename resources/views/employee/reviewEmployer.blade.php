@@ -3,8 +3,16 @@
 @section('content')
     <div class="container content-child">
         <h1 class="text-uppercase text-center title-h1">Đánh giá nhà tuyển dụng</h1>
-        @include('form.formFindJob')
-        <div class="list-company" >
+
+        <div class="search-content">
+            <h4> Tìm kiếm các công việc cần thiết</h4>
+            <div class="search-content-background">
+
+                @include('form.formFindJob')
+            </div>
+
+        </div>
+        <div class="list-company">
 
             <div class="container">
                 <a class="navbar-brand" href="#"></a>
@@ -15,7 +23,6 @@
 
                 <div class="row">
                     <div class="col-md-12">
-
                         <div class="review-list ">
                             <div class="review-list-item row" href="#myModal" data-toggle="modal">
                                 <img class="review-list-item-img col-2"
@@ -94,7 +101,7 @@
         </div>
 
 
-@include('employee.reviewDetailEmployer');
+        @include('employee.reviewDetailEmployer');
     </div>
 
 @endsection

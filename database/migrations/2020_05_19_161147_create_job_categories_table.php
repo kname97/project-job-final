@@ -15,7 +15,7 @@ class CreateJobCategoriesTable extends Migration
     {
         Schema::create('jobcategories', function (Blueprint $table) {
             $table->string('id', 10)->unique();
-            $table->string('name');
+            $table->string('name')->unique();
         });
     }
 
