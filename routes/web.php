@@ -46,6 +46,11 @@ Route::group(['prefix' => 'nha-tuyen-dung'], function () {
     Route::get('/thong-tin-ca-nhan', 'Employer\employerController@getProfile')->name('getProfileEmployer');
     Route::get('/','Employer\employerController@getviewInforEmployer')->name('getviewInforEmployer');
     //Route::get('/dang-tin-tuyen-dung/category','Employer\postJobController@getJobcategories')->name('getCateJob');
+    Route::post('dang-tin-tuyen-dung/store','Employer\postJobController@jobStore')->name('jobStore');
+    Route::get('/quan-ly-tin-tuyen-dung','Employer\employerController@getViewManageJobs')->name('getviewManageJobEmployer');
+    Route::get('/danh-sach-tin-tuyen-dung','Employer\employerController@getDataManageJobs')->name('getDataJobEmployer');
+    Route::get('/quan-ly-tin-tuyen-dung/delete/{id}', 'Employer\employerController@deletelJob')->name('deleteJob');
+    Route::get('/quan-ly-tin-tuyen-dung/edit/{id}', 'Employer\employerController@editJob')->name('editJob');
 });
 
 //employee
@@ -58,8 +63,6 @@ Route::group(['prefix' => 'nguoi-tim-viec'], function () {
     Route::get('/yeu-thich-ntd', 'Employee\wishlistEmployerController@index')->name('getViewWishlistEmployer');
     Route::get('/yeu-thich-viec', 'Employee\wishlistJobController@index')->name('getViewWishlistJob');
     Route::post('/thong-tin-ca-nhan/cap-nhat/{id}','Employee\employeeController@profilUpdate')->name('updateProfile');
-
-
 });
 // employer
 Route::group(['prefix' => 'thong-tin-ca-nhan'], function () {

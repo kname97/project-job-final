@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     // setup ajax all
     $.ajaxSetup({
@@ -10,7 +9,7 @@ $(document).ready(function () {
         e.preventDefault();
         const txtemail = $('#txtemail').val();
         const txtpassword = $('#txtpassword').val();
-        const checkError = function(){
+        const checkError = function () {
             if (txtemail.length > 0) {
 
                 $('.errorEmail').hide();
@@ -68,6 +67,11 @@ $(document).ready(function () {
 
 //process bar in view post job
 $(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     let current_fs, next_fs, previous_fs; //fieldsets
     let opacity;
     let current = 1;
@@ -135,6 +139,10 @@ $(document).ready(function () {
         placeholder: 'Chọn danh mục',
         // },
     });
+    $('#select-location').select2({
+        placeholder: 'Chọn khu vực',
+        // },
+    });
     $('#category-select').select2({
         placeholder: 'Chọn ngành / Nghề',
     });
@@ -148,7 +156,7 @@ $(document).ready(function () {
         btns: [
             ['viewHTML'],
             ['formatting'],
-            ['historyUndo','historyRedo'],
+            ['historyUndo', 'historyRedo'],
             ['strong', 'em', 'del'],
             ['align'],
             ['foreColor', 'backColor'],
@@ -165,7 +173,7 @@ $(document).ready(function () {
         btns: [
             ['viewHTML'],
             ['formatting'],
-            ['historyUndo','historyRedo'],
+            ['historyUndo', 'historyRedo'],
             ['strong', 'em', 'del'],
             ['align'],
             ['foreColor', 'backColor'],
@@ -182,7 +190,7 @@ $(document).ready(function () {
         btns: [
             ['viewHTML'],
             ['formatting'],
-            ['historyUndo','historyRedo'],
+            ['historyUndo', 'historyRedo'],
             ['strong', 'em', 'del'],
             ['align'],
             ['foreColor', 'backColor'],
@@ -211,8 +219,97 @@ $(document).ready(function () {
 
 //fix overlay
 $(document).ready(function () {
-    $('#negotiable').change(function() {
-        $('#minsalary').attr('disabled',this.checked);
-        $('#maxsalary').attr('disabled',this.checked);
+    $('#negotiable').change(function () {
+        $('#minsalary').attr('disabled', this.checked);
+        $('#minsalary').val('');
+        $('#maxsalary').attr('disabled', this.checked);
+        $('#maxsalary').val('');
+    });
+});
+
+
+// data tables manager job
+$(document).ready(function () {
+    // data table
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $('#listmanagerJobs').DataTable({
+        responsive: true,
+        processing: true,
+        serverSide: true,
+        search: true,
+        ajax: {
+            url: route('getDataJobEmployer') ,
+            type: 'GET',
+        },
+        columns: [
+            {data: 'id' , name: 'id'},
+            {data: 'title', name: 'title'},
+            {data: 'jobtype', name: 'jobtype'},
+            {data: 'jobcategory', name: 'jobcategory'},
+            {data: 'minsalary' , name: 'minsalary'},
+            {data: 'maxsalary', name: 'maxsalary'},
+            {data: 'startdate' , name: 'startdate'},
+            {data: 'enddate', name: 'enddate'},
+            {data: 'created_at', name: 'created_at'},
+            {data: 'updated_at', name: 'updated_at'},
+            // {data: 'action' ,searchable: false}
+            {data: 'action', name: 'action', orderable: false, searchable: false}
+        ],
+    });
+    //delete postJob
+    $('body').on('click', '#delete-job', function () {
+        let id = $(this).data("id");
+        let checkstr =  confirm('bạn có chắc chắn xóa tin tuyển dụng này chứ?');
+        // if (confirm('Bạn muốn tài khoản ' + id + ' ?') === true)
+        if(checkstr) {
+            $.ajax({
+                url: route('deleteJob', id),
+                type: "GET",
+                success: function (data) {
+
+                    let oTable = $('#listmanagerJobs').dataTable();
+                    oTable.fnDraw(false);
+                    toastr.success('Xóa tin tuyển dụng thành công', 'Thông báo', {timeOut: 500});
+                    x``
+
+                },
+                error: function (data) {
+                    console.log('Error: ', data);
+
+                }
+            });
+        }
+        toastr.error('Xóa tin tuyển dụng thất bại', 'Thông báo', {timeOut: 500});
+        return false;
+    });
+
+    //eidt job
+    // edit account
+    $('body').on('click','#edit-job', function () {
+        let id = $(this).data("id");
+        $('#editJob').modal('show');
+        $('#editJobForm').attr({
+            id : 'editJobForm',
+            name : 'editJobForm',
+            action : 'manage-account/save',
+            method : 'post'
+        });
+        $('#user_id').val(id);
+        $.ajax({
+            type: 'GET',
+            url: route('editJob',id),
+            success: function (data) {
+                $('#edittitle').val(data.title);
+                // $('#editemail').val(data.email);
+                // $("input[name=editlevel][value=" + data.level + "]").attr('checked', 'checked');
+            },
+            error: function (data) {
+                console.log("lỗi"   , data.username);
+            }
+        });
     });
 });

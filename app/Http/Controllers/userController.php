@@ -15,6 +15,7 @@ use App\Http\Requests\updatePassword;
 use Hash;
 use App\Models\Jobcategories;
 use Illuminate\Support\Facades\View;
+use App\Models\jobs;
 
 
 class userController extends Controller
@@ -33,11 +34,12 @@ class userController extends Controller
     // get login
     function getloginUser()
     {
+        $jobDatas = jobs::getAllJobinHome();
         if (Auth::check() && Auth::user()->level == 2) {
 
                 return view('employer.manageInfor');
         }
-        return view('index');
+        return view('index',compact('jobDatas'));
     }
 
     // post login

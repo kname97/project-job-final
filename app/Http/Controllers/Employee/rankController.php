@@ -16,4 +16,5 @@ class rankController extends Controller
     {
         return view('employee.rankEmployer');
     }
+
 }

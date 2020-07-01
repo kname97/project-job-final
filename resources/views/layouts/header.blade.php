@@ -59,7 +59,7 @@
                         <button class="dropbtn-link">Quản lý tin đăng</button>
                         <div class="dropdown-content">
                             <a class="nav-link" href="{{route('getPostJob')}}">Đăng tin tuyển dụng</a>
-                            <a class="nav-link" href="#">Quản lý tin tuyển dụng</a>
+                            <a class="nav-link" href="{{route('getviewManageJobEmployer')}}">Quản lý tin tuyển dụng</a>
                         </div>
                     </div>
 

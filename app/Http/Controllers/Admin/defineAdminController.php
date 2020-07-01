@@ -21,7 +21,8 @@ class defineAdminController extends Controller
    }
    function getListAcounts(){
        Carbon::setLocale('vi');
-       $users = User::select(['id','username','email','level','created_at','updated_at'])->where('level', '!=', 0);
+       $users = User::select(['id','username','email','level','created_at','updated_at'])->where('level', '!=', 0)->get();
+//       dd($users); exit();
        if (request()->ajax()) {
            return DataTables::of($users)
                ->editColumn('created_at', function ($user){

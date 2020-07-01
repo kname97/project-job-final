@@ -16,7 +16,7 @@ $(document).ready(function () {
         serverSide: true,
         search: true,
         ajax: {
-            url:'list-accounts' ,
+            url: route('listAccounts') ,
             // '{{route('listAccounts')}}'
             type: 'GET',
         },

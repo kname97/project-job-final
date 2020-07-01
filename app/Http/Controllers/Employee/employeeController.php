@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Http\Requests\createProfile;
 use App\Models\employees;
+use DB;
 
 class employeeController extends Controller
 {
@@ -21,7 +22,8 @@ class employeeController extends Controller
     {
         $user = Auth::user()->id;
         $employees = User::findOrFail($user);
-        $profileEmployees = employees::find($user,'user_id')->first();
+        $profileEmployees = employees::where('user_id',$user)->first();
+//        dd($profileEmployees, $user);
         return view('employee.profileEmployee', compact('employees','profileEmployees'));
     }
 //    update profile

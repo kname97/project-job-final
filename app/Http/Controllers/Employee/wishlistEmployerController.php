@@ -16,4 +16,11 @@ class wishlistEmployerController extends Controller
     {
         return view('employee.wishlistEmployer');
     }
+    function deleteAccount($id){
+        if (request()->ajax()) {
+            $findAccount = User::find($id)->delete();
+            return response()->json($findAccount);
+        }
+        return view('errors.404');
+    }
 }

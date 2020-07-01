@@ -15,17 +15,22 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title',60);
+            $table->string('title',60)->nullable();
             $table->longText('desciption')->nullable();
+            $table->string('jobcategory')->nullable();
             $table->string('jobtype');
             $table->string('minsalary')->nullable();
             $table->string('maxsalary')->nullable();
-            $table->boolean(' negotiable')->default(0);
+            $table->string('negotiable')->nullable();
             $table->string('position')->nullable();
             $table->integer('exp')->nullable();
-            $table->date('startdate');
-            $table->string('email');
-            $table->string('phone');
+            $table->date('startdate')->nullable();
+            $table->date('enddate')->nullable();
+            $table->integer('amount')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('area')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });

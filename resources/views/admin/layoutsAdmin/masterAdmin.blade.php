@@ -53,5 +53,6 @@
 @toastr_render
 <!-- Menu Toggle Script -->
 <script src="{{ asset('js/admin/admin.js') }}"></script>
+
 </body>
 </html>

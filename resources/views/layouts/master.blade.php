@@ -34,12 +34,11 @@
 @include('layouts.footer')
 {{-- script boostrap  --}}
 @routes()
-<script src="{{asset('js/general/slim.min.js')}}" ></script>
-<script src="{{asset('js/general/popper.min.js')}}" ></script>
-<script src="{{asset('/js/general/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/general/jquery.min.js')}}"></script>
-<script type='text/javascript' src="{{asset('js/general/dataTable.min.js')}}"></script>
+<script src="{{asset('js/general/slim.min.js')}}"></script>
+<script src="{{asset('js/general/popper.min.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/general/dataTable.min.js')}}"></script>
 <script src="{{asset('js/general/select2.full.min.js')}}"></script>
 <script src="{{asset('trumbowyg/dist/trumbowyg.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('trumbowyg/dist/langs/vi.min.js')}}"></script>
