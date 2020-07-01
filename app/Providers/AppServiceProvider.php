@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        View::share('jobCategory', DB::table('jobcategories')->get());
-        View::share('locations', DB::table('locations')->get());
+//        View::share('jobCategory', DB::table('jobcategories')->get());
+//        View::share('locations', DB::table('locations')->get());
     }
 }
