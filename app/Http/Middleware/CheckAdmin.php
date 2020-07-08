@@ -23,7 +23,7 @@ class CheckAdmin
             }
             else
             {
-                return redirect()->back();
+                return back();
             }
         }
         else

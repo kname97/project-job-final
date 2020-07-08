@@ -17,12 +17,13 @@
 {{--                <th>Kinh nghiệm</th>--}}
                 <th>Ngày bắt đầu</th>
                 <th>Ngày kết thúc</th>
+                <th>Trạng thái</th>
 {{--                <th>Số lượng</th>--}}
 {{--                <th>Khu vực</th>--}}
 {{--                <th>Email</th>--}}
 {{--                <th>Số điện thoại</th>--}}
-                <th>Tạo ngày</th>
-                <th>Cập nhật ngày</th>
+{{--                <th>Tạo ngày</th>--}}
+{{--                <th>Cập nhật ngày</th>--}}
                 <th>Hành động</th>
             </tr>
             </thead>
@@ -50,9 +51,14 @@
                             <small id="helpId" class="form-text text-danger error errorUsername">
                             </small>
                         </div>
-                        <div class="form-group">
-                            <label for="uname1">Email</label>
-                            <input type="text" class="form-control " name="editemail" id="editemail">
+                        <div class="form-group" >
+                            <label for="uname1">TRực thuộc</label>
+                            <select class="custom-control" name="editcategoryjob" id="editcategoryjob" >
+                                <option value=""></option>
+                                @foreach($jobCategory as $cateJob)
+                                    <option value="{{$cateJob->name}}" >{{$cateJob->name}}</option>
+                                @endforeach
+                            </select>
                             <small id="helpId" class="form-text text-danger error errorEmail">
                             </small>
                         </div>

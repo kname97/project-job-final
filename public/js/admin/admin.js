@@ -57,7 +57,7 @@ $(document).ready(function () {
         $('#editAccountForm').attr({
             id : 'editAccountForm',
             name : 'editAccountForm',
-            action : 'manage-account/save',
+            action : route('saveAccount'),
             method : 'post'
         });
         $('#user_id').val(id);
@@ -67,7 +67,8 @@ $(document).ready(function () {
             success: function (data) {
                 $('#editusername').val(data.username);
                 $('#editemail').val(data.email);
-                $("input[name=editlevel][value=" + data.level + "]").attr('checked', 'checked');
+                $('#editpassord').val(data.password);
+                // $("input[name=editlevel][value=" + data.level + "]").attr('checked', 'checked');
             },
             error: function (data) {
                 console.log("lỗi"   , data.username);
@@ -80,12 +81,12 @@ $(document).ready(function () {
         let dataEdit = {
             'username' :  $('#editusername').val(),
             'email' :  $('#editusername').val(),
-            'level' :  $('input[name=editlevel]:checked').val(),
+            'password' :  $('#editpassord').val(),
         };
         $.ajax({
             data : dataEdit,
             type : 'post',
-            url : 'manage-account/save',
+            url : route('saveAccount'),
             dataType: 'json',
             success : function (data) {
                 console.log(data);

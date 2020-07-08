@@ -12,7 +12,6 @@ class employees extends Model
         'id',
         'lastname',
         'firstname',
-        'avartar',
         'cover',
         'gender',
         'dob',

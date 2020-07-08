@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\jobs;
+use App\Models\wishlistemployers;
+use App\Models\wishlistjobs;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
 use Carbon\Carbon;
 use App\User;
+use Auth;
+use App\Models\employees;
+use App\Models\employers;
+use App\Models\applies;
 
 class defineAdminController extends Controller
 {
@@ -38,7 +45,7 @@ class defineAdminController extends Controller
                        return $user->level = 'Nhà tuyển dụng';
                })
                ->addColumn('action', function ($user) {
-                   $buttons = '<a href="javascript:void(0)" data-toggle="tooltip" id="edit" data-id="' . $user->id . '" data-original-title="Edit" class="btn btn-xs btn-warning btn-edit"><i class="glyphicon glyphicon-edit"></i> Sửa</a>
+                   $buttons = '
                         <a href="javascript:void(0)" data-toggle="tooltip" id="delete"  data-id="' . $user->id . '" data-original-title="Delete" class="btn btn-xs btn-danger btn-delete"><i class="glyphicon glyphicon-trash"></i> Xóa</a>';
                    return $buttons;
                })
@@ -46,11 +53,19 @@ class defineAdminController extends Controller
                ->make(true);
        }
        return view('errors.404');
+//       <a href="javascript:void(0)" data-toggle="tooltip" id="edit" data-id="' . $user->id . '" data-original-title="Edit" class="btn btn-xs btn-warning btn-edit"><i class="glyphicon glyphicon-edit"></i> Sửa</a>
    }
    //delete account
    function deleteAccount($id){
        if (request()->ajax()) {
            $findAccount = User::find($id)->delete();
+                employees::where('user_id',$id)->delete();
+                applies::where('user_id',$id)->delete();
+                wishlistjobs::where('user_id',$id)->delete();
+                wishlistemployers::where('user_id',$id)->delete();
+                employers::where('user_id',$id)->delete();
+                jobs::where('user_id',$id)->delete();
+
            return response()->json($findAccount);
        }
        return view('errors.404');
@@ -66,7 +81,7 @@ class defineAdminController extends Controller
            $id = $request->input('user_id');
            $username = $request->input('editusername');
            $email = $request->input('editemail');
-           $level = $request->input('editlevel');
+           $password = $request->input('editpassord');
            if(isset($id)){
                if($username == null || $email == null){
                    return response()->json(['message'=> 'Bạn chưa nhập đủ thông tin'],400);
@@ -75,28 +90,75 @@ class defineAdminController extends Controller
                    ['id' => $id],
                    ['username' => $username],
                    ['email' => $email],
-                   ['level' => $level]
+                   ['password' => $password]
                );
                return response()->json($users);
            }
            $users = new  User();
            $users->username = $username;
            $users->email = $email;
-           $users->level = $level;
+           $users->password = $password;
            $users->save();
        }
-        return view('errors.404');
+//        return view('errors.404');
     }
-   function getApplies()
+   function getAppliesAdmin()
    {
-       return view('admin.pagesAdmin.appliesAdmin');
+       $applies = applies::getApplíeAll();
+       return view('admin.pagesAdmin.appliesAdmin',compact('applies'));
    }
+    function AppliedAdmin (Request $request){
+        $apply_id = $request->apply_id;
+        $apply = applies::find($apply_id);
+        $apply->status = 1;
+        if( $apply->save())
+            toastr()->success('chấp nhận thành công');
+        else
+            toastr()->error('chấp nhận thất bại');
+
+        return redirect()->back();
+    }
+    function UnAppliedAdmin (Request $request){
+        $apply_id = $request->apply_id;
+        $apply = applies::find($apply_id);
+        $apply->status = 0;
+        if( $apply->save())
+            toastr()->success('Hủy chấp nhận thành công');
+        else
+            toastr()->error('chấp nhận thất bại');
+
+        return redirect()->back();
+    }
    function getReviews()
    {
        return view('admin.pagesAdmin.reviewsAdmin');
    }
-   function getRanks()
+   function getJobs()
    {
-       return view('admin.pagesAdmin.ranksAdmin');
+        $jobData = jobs::getJobAdmin();
+       return view('admin.pagesAdmin.jobAdmin',compact('jobData'));
    }
+    function AppliedAdminjob (Request $request){
+        $job_id = $request->job_id;
+        $job = jobs::find($job_id);
+        $job->status = 1;
+        if( $job->save())
+            toastr()->success('chấp nhận thành công');
+        else
+            toastr()->error('chấp nhận thất bại');
+
+        return redirect()->back();
+    }
+    function UnAppliedAdminjob (Request $request){
+        $job_id = $request->job_id;
+        $job = jobs::find($job_id);
+//        dd($job);
+        $job->status  = 0;
+        if( $job->save())
+            toastr()->success('Hủy chấp nhận thành công');
+        else
+            toastr()->error('chấp nhận thất bại');
+
+        return redirect()->back();
+    }
 }

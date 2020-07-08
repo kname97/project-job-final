@@ -1,6 +1,8 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-white ">
-        <a class="navbar-brand" href="{{url('/')}}">JOBs</a>
+        <a class="navbar-brand" href="{{url('/')}}">
+            <img src="{{asset('images/logo.png')}}" style="width: 60px">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,40 +24,40 @@
             </ul>
             @if(Auth::check())
                 @if(Auth::user()->level == 1)
-                    <span class="navbar-text">
+                    <span class="navbar-text text-uppercase text-uppercase">
                         <a href="{{route('getViewManageApplies')}}" class="nav-link">
                            Quản lý đơn xin việc
                         </a>
                     </span>
-                    <div class="dropdown navbar-text">
+                    <div class="dropdown navbar-text text-uppercase text-uppercase">
                         <button class="dropbtn-link">Danh sách yêu thích</button>
                         <div class="dropdown-content">
                             <a class="nav-link" href="{{route('getViewWishlistJob')}}">Công việc yêu thích</a>
                             <a class="nav-link" href="{{route('getViewWishlistEmployer')}}">Nhà tuyển dụng yêu thích</a>
                         </div>
                     </div>
-                    <span class="navbar-text">
-                        <a href="{{route('getViewReview')}}" class="nav-link">
-                          Đánh giá
-                        </a>
-                    </span>
-                    <span class="navbar-text">
+    {{--                    <span class="navbar-text text-uppercase">--}}
+    {{--                        <a href="{{route('getViewReview')}}" class="nav-link">--}}
+    {{--                          Đánh giá--}}
+    {{--                        </a>--}}
+    {{--                    </span>--}}
+                    <span class="navbar-text text-uppercase">
                         <a href="{{route('getViewRank')}}" class="nav-link">
                           Bảng xếp hạng
                         </a>
                     </span>
                 @elseif(Auth::user()->level == 2)
-                    <span class="navbar-text">
+                    <span class="navbar-text text-uppercase">
                         <a href="{{route('getviewInforEmployer')}}" class="nav-link">
                           Giới thiệu nhà tuyển dụng
                         </a>
                     </span>
-                    <span class="navbar-text">
-                        <a href="" class="nav-link">
+                    <span class="navbar-text text-uppercase">
+                        <a href="{{route('employer.getApplied')}}" class="nav-link">
                           Hồ sơ tuyển dụng
                         </a>
                     </span>
-                    <div class="dropdown navbar-text">
+                    <div class="dropdown navbar-text text-uppercase">
                         <button class="dropbtn-link">Quản lý tin đăng</button>
                         <div class="dropdown-content">
                             <a class="nav-link" href="{{route('getPostJob')}}">Đăng tin tuyển dụng</a>
@@ -65,16 +67,17 @@
 
                 @endif
                 {{--                    <li class="nav-item dropdown">--}}
-                <a class="nav-link text-capitalize dropdown" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img
-                            src="{{asset('images/avartar/images.jpg')}}"
-                            alt="Avatar" class="avatar-header">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="nav-link text-capitalize dropdown" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        {{Auth::user()->username}}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     @if(Auth::user()->level == 1)
+
                         <a class="dropdown-item" href="{{route('getProfileEmployee')}}">
                             @elseif(Auth::user()->level == 2)
+
                                 <a class="dropdown-item" href="{{route('getProfileEmployer')}}">
                             @endif
                             <i class="far fa-user-circle"></i>
@@ -88,17 +91,17 @@
                 </div>
                 {{--                      </li>--}}
             @else
-                <span class="navbar-text">
+                <span class="navbar-text text-uppercase">
                         <a href="{{route('getviewSearch')}}" class="nav-link">
                             Việc làm
                         </a>
                     </span>
-                <span class="navbar-text">
+                <span class="navbar-text text-uppercase">
                         <a href="{{route('getPostJob')}}" class="nav-link">
                            Tuyển dụng
                         </a>
                     </span>
-                <span class="navbar-text">
+                <span class="navbar-text text-uppercase">
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">
                     Đăng nhập
                 </a>

@@ -8,6 +8,8 @@
     <title>JOBs | @yield('title')</title>
     <script src="{{asset('js/general/font.js')}}" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/general/style.css') }}">
+    <link rel="icon" href="{{asset('images/logo.png')}}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/general/dataTables.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/general/select2.min.css')}}">

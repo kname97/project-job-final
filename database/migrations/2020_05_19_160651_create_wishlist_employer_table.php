@@ -15,9 +15,9 @@ class CreateWishlistEmployerTable extends Migration
     {
         Schema::create('wishlistemployers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('employee_id');
-            $table->integer('job_id');
-            $table->boolean('added');
+            $table->integer('user_id');
+            $table->integer('employer_id');
+//            $table->boolean('added')->default(0);
         });
     }
 

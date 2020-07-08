@@ -12,7 +12,7 @@
                 </p>
                 <div class="go-to-post text-center">
                     <button class="btn btn-lg btn-primary">
-                        <a href="{{route('getPostJob')}}">ĐĂNG TIM TUYỂN DỤNG</a>
+                        <a href="{{route('getPostJob')}}">ĐĂNG TIN TUYỂN DỤNG</a>
                     </button>
                 </div>
             </div>

@@ -4,26 +4,42 @@
     {{$employees->username}}
 @endsection
 @section('content')
-    @if ($errors->any())
-        <div class=”alert alert-danger”>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <div class="container-fluid content-child">
         <div class=" container-fluid">
+
             <div class="row">
-                <div class="col-3">
-                    @include('layouts.menuLeft')
-                </div>
-                <div class="col-9 change-content-click">
-                    <div class="profile-img">
-                        @include('form.imageProfile')
+                <div class="col-sm-3"><!--left col-->
+                    <div class="text-center">
+                        <form id="user_avatar_save_form" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class=" avatar img-size"  id="user_avatar"
+                                 style="background-image: url('{{ $profileEmployees->avatar == null ?   asset
+                                 ('images/avartar/avatar_default.png') :  asset($profileEmployees->avatar) }}');
+                                         margin-left: 110px;">
+                            </div>
+                            <h6 style="color: silver">Đăng ảnh đại hiện ( khuyến khích ảnh vuông )</h6>
+                            <input onchange="doAfterSelectAvatarEmployee(this)" type="file" class="text-center center-block
+                            file-upload" name="avatar"  id="upload-avatar" hidden>
+                            <label class="btn btn-success" for="upload-avatar" >Tải ảnh</label>
+                        </form>
                     </div>
+
+                    <ul class="list-group">
+
+                        <li class="list-group-item text-center"><span class="pull-left"><strong>số lượng lưu tin
+                                    tuyển dụng</strong></span>
+                            {{$countwishList}}</li>
+                        <li class="list-group-item text-center"><span class="pull-left"><strong>Số lượng lưu nhà
+                                    tuyển dụng</strong></span>
+                            {{$countwishListEr}}</li>
+
+                    </ul>
+
+
+                </div><!--/col-3-->
+                <div class="col-9 change-content-click">
                     <div class="profile-detail">
+                        <small style="color:silver;">Cập nhật đầy đủ thông tin cá nhân của bạn để tăng cơ hội việc làm</small>
                         <div class="row my-2">
                             <div class="col-12 order-lg-2">
                                 <ul class="nav nav-tabs" id="tab-profile">
@@ -97,12 +113,19 @@
                                                 </p>
 
 
-
                                             </div>
                                             <div class="col-md-6">
                                                 <h6>Chuyên ngành</h6>
-                                                <a href="#" class="badge badge-dark badge-pill">{{$profileEmployees->tag_skill
-                                                !== null ? $profileEmployees->tag_skill : '' }}</a>
+                                                @if($profileEmployees->tag_skill !== null)
+
+                                                    @foreach(explode(',',$profileEmployees->tag_skill ) as $skill)
+                                                        <a href="ja" class="badge badge-primary badge-pill">{{$skill}}</a>
+                                                    @endforeach
+                                                @else
+                                                    Người tìm việc chưa nhập kỹ năng
+                                                @endif
+{{--                                                <a href="#" class="badge badge-dark badge-pill">{{$profileEmployees->tag_skill--}}
+{{--                                                !== null ? $profileEmployees->tag_skill : '' }}</a>--}}
                                                 <hr>
                                                 {{--                                                <span class="badge badge-primary"><i class="fa fa-user"></i> 9 Nhà tuyển dụng yêu thích</span>--}}
                                                 {{--                                                <span class="badge badge-danger"><i--}}
@@ -145,10 +168,10 @@
                                         <!--/row-->
                                     </div>
                                     <div class="tab-pane" id="messages">
-                                       <h4> mô tả bản thân </h4>
+                                        <h4> mô tả bản thân </h4>
                                         <div class="des" style="background: #fff8b3;padding: 20px 20px">
                                             @if($profileEmployees->description)
-                                               {!!$profileEmployees->description!!}
+                                                {!!$profileEmployees->description!!}
                                             @endif
                                         </div>
 
@@ -232,9 +255,11 @@
                                                     <input class="form-control " name="txttag_skill" type="text"
                                                            value="{{$profileEmployees->tag_skill !== null ?
                                                            $profileEmployees->tag_skill: ''}}"
+                                                           data-role="tagsinput"
                                                     >
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Trường đại học</label>
                                                 <div class="col-lg-9">

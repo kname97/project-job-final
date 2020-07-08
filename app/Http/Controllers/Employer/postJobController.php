@@ -39,7 +39,7 @@ class postJobController extends Controller
         $job->address = $request->address;
         $checkJobpost = $job->save();
         if($checkJobpost){
-            toastr()->Success('Đăng tin tuyển dụng thành công');
+            toastr()->Success('Đăng tin tuyển dụng thành công, vui lòng đợi nhà quản trị duyệt đơn');
         }
         else {
             toastr()->Error('Đăng tin tuyển dụng thất bại, vui lòng xem lại các thông tin');

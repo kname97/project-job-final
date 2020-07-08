@@ -25,21 +25,34 @@ class userController extends Controller
 
         $this->middleware('guest');
     }
-    function getviewSearchJob() {
-        if(Auth::check() && Auth::user()->level == 2){
-            return redirect(route('getviewInforEmployer'));
-        }
-        return view('generalView.resultSearch');
+//    function getviewSearchJob() {
+//        $jobSearchs = jobs::getAllJobinHome()->paginate(9);
+//
+//        if(Auth::check() && Auth::user()->level == 2){
+//            return redirect(route('getviewInforEmployer'));
+//        }
+//        return view('generalView.resultSearch',compact('jobSearchs'));
+//    }
+    function search(Request $request) {
+        $cate = $request->cate;
+        $area = $request->area;
+
+        $jobSearchs = jobs::getSearch($cate, $area)->paginate(9);
+//        dd($jobSearchs);
+        return view('generalView.resultSearch',compact('jobSearchs'));
     }
     // get login
     function getloginUser()
     {
-        $jobDatas = jobs::getAllJobinHome();
+        $jobDatas = jobs::getAllJobinHome()->get();
+        $employerDatas = employers::getEmployerandCountJob()->get();
+//        dd($jobDatas); exit();
         if (Auth::check() && Auth::user()->level == 2) {
 
                 return view('employer.manageInfor');
         }
-        return view('index',compact('jobDatas'));
+//        dd( $jobDatas);
+        return view('index',compact('jobDatas','employerDatas'));
     }
 
     // post login

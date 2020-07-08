@@ -47,10 +47,7 @@
                         </small>
 
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="remember" name="remember">
-                      <label class="custom-control-label" for="remember">Ghi nhớ</label>
-                    </div>
+
                     <div class="form-group modal-footer" >
                         <button type="submit" class="btn btn-info" id="loginSubmit">Đăng nhập</button>
                         <button type="button" class="btn btn-outline-secondary " data-dismiss="modal" aria-hidden="true">Hủy bỏ</button>

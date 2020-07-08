@@ -123,7 +123,15 @@
                                     </small>
                                 @endif
                                 <label class="fieldlabels">Chức vụ: *</label>
-                                <input type="text" class="form-control {{ $errors->has('position') ? ' is-invalid' : '' }}" name="position" placeholder="Tên chức vụ"/>
+                                <label class="fieldlabels">Loại công việc : *</label>
+                                <div class="input-group mb-3">
+                                    <select class=" input-group form-control {{ $errors->has('position') ? ' is-invalid' : '' }}"name="position">
+                                        <option value="Nhân viên">Nhân viên</option>
+                                        <option value="Quản lý">Quản lý</option>
+                                        <option value="Giám đốc">Giám đốc</option>
+                                        <option value="Kỹ thuật viên">Kỹ thuật viên</option>
+                                    </select>
+                                </div>
                                 @if($errors->has('position'))
                                     <small id="helpId" class="form-text text-danger">
                                         {{$errors->first('position')}}
@@ -188,7 +196,7 @@
                                     </small>
                                 @endif
                             </div>
-                            <button type="submit"  class=" action-button" >Submit</button>
+                            <button type="submit"  class=" action-button" >Xác nhận</button>
                             <button type="button" name="previous" class="previous action-button-previous" >Quay lại</button>
                         </fieldset>
                     </form>

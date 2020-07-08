@@ -1,91 +1,65 @@
 @extends('layouts.master')
-@section('title','Danh sách các công việc yêu thích')
+@section('title','Danh sách yêu thích nhà tuyển dụng')
 @section('content')
+    <div class="container content-child">
 
+        <div class="search-content">
+            <h4> Tìm kiếm các công việc cần thiết</h4>
+            <div class="search-content-background">
 
-
-    <div class="list-company">
-        <div class="container">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="review-list ">
-                        <div class="review-list-item row" href="#myModal" data-toggle="modal">
-                            <img class="review-list-item-img col-2"
-                                 src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
-                                 alt="List user">
-                            <div class="review-list-item-text col-10">
-                                <h3>
-                                    <a href="#">Công ty trách nhiệm hữu hạng</a>
-                                    <span class="company-rating">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                             <i class="fa fa-star" aria-hidden="true"></i>
-                                             <i class="fa fa-star" aria-hidden="true"></i>
-                                             <i class="fa fa-star" aria-hidden="true"></i>
-                                             <i class="fa fa-star" aria-hidden="true"></i>
-                                        </span>
-                                    <span class="badge badge-pill badge-primary">
-                                            260
-                                        </span>
-                                </h3>
-                                <h4>Brunch this weekend?</h4>
-                                <p> I'll be in your neighborhood doing errands</p>
-                            </div>
-                            <div class="list-item-right"></div>
-                        </div>
-                        <div class="review-list-item row">
-                            <img class="review-list-item-img col-2"
-                                 src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
-                                 alt="List user">
-                            <div class="review-list-item-text col-10">
-                                <h3><a href="#">Catherine Crawford</a></h3>
-                                <h4>Brunch this weekend?</h4>
-                                <p> I'll be in your neighborhood doing errands</p>
-                            </div>
-                        </div>
-                        <div class="review-list-item row">
-                            <img class="review-list-item-img col-2"
-                                 src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
-                                 alt="List user">
-                            <div class="review-list-item-text col-10">
-                                <h3><a href="#">Rosemary Jimenez</a></h3>
-                                <h4>Brunch this weekend?</h4>
-                                <p> I'll be in your neighborhood doing errands</p>
-                            </div>
-                        </div>
-                        <div class="review-list-item row">
-                            <img class="review-list-item-img col-2"
-                                 src="https://cdn.itviec.com/employers/toshiba-software-development-viet-nam-co-ltd/logo/w170/qmEermNPcp6FuQfTvY7J91na/toshiba-software-development-viet-nam-co-ltd-logo.png"
-                                 alt="List user">
-                            <div class="review-list-item-text col-9">
-                                <h3><a href="#">Guy Carpenter</a></h3>
-                                <h4>Brunch this weekend?</h4>
-                                <p> I'll be in your neighborhood doing errands</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+                @include('form.formFindJob')
             </div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination pg-blue justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link">1</a></li>
-                    <li class="page-item"><a class="page-link">2</a></li>
-                    <li class="page-item"><a class="page-link">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link">Next</a>
-                    </li>
-                </ul>
-            </nav>
+
+        </div>
+        <div class="table-wishlist-employer">
+            <h1 class="text-uppercase text-center title-h1">Danh sách lưu việc</h1>
+
+            <table class="table table-hover">
+                <thead class="text-center">
+
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col" >Tin tuyển dụng</th>
+                    <th scope="col">Tiền lương</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Danh mục</th>
+                    <th scope="col">Loại</th>
+                    <th scope="col">khu vực</th>
+                    <th scope="col" >xóa</th>
+
+                </tr>
+                </thead>
+                <tbody  class="text-center">
+                @foreach($wishList as $item)
+                    <tr>
+                        <th scope="row"> {{$item->id}}</th>
+                        <td> <a href="{{route('getJobDetail',$item->job_id)}}">{{$item->title}}</a></td>
+                        <td>
+                            @if($item->negotiable == null)
+                                {{$item->minsalary}} - {{$item->maxsalary}}
+                            @else
+                                Thỏa thuận
+                            @endif
+                        </td>
+                        <td>{{$item->phone}}</td>
+                        <td>{{$item->amount}}</td>
+                        <td>{{$item->jobcategory}}</td>
+                        <td>{{$item->jobtype}}</td>
+                        <td>{{$item->area}}</td>
+{{--                        <td colspan="2"> <a href="{{route('general.getProfileEmployer',$item->employer_id)}}">{{$item->name}}</a> </td>--}}
+{{--                        <td>{{$item->address}} {{$item->district}}, {{$item->city}}</td>--}}
+                        <td>
+                            <button class="btn btn-outline-danger" id="del-wishlist-job" data-id="{{$item->wl_id}}">Xóa</button>
+                        </td>
+
+                    </tr>
+                @endforeach
+
+                </tbody>
+            </table>
+
+
         </div>
 
 

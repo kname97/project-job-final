@@ -16,10 +16,9 @@ class CreateProfileEmployersTable extends Migration
         Schema::create('employers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->string('avartar')->nullable();
-            $table->string('cover')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('business_sector')->nullable();
-            $table->longText('desciption')->nullable();
+            $table->longText('description')->nullable();
             $table->string('phone')->nullable();
             $table->string('skype')->nullable();
             $table->string('address')->nullable();

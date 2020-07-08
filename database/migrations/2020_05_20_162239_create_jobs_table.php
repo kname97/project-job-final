@@ -23,6 +23,7 @@ class CreateJobsTable extends Migration
             $table->string('maxsalary')->nullable();
             $table->string('negotiable')->nullable();
             $table->string('position')->nullable();
+            $table->integer('status')->default(0);
             $table->integer('exp')->nullable();
             $table->date('startdate')->nullable();
             $table->date('enddate')->nullable();

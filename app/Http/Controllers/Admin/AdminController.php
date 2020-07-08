@@ -9,9 +9,12 @@ use Illuminate\Support\MessageBag;
 use App\Http\Requests\loginRequest;
 use App\User;
 use Validator;
-
+use  App\Models\employers;
+use  App\Models\employees;
+use App\Models\applies;
 class AdminController extends Controller
 {
+
     function getLoginAdmin()
     {
         return view('admin.loginAdmin');
@@ -31,7 +34,16 @@ class AdminController extends Controller
 
     function getAdminHome()
     {
-        return view('admin.indexAdmin');
+        $users = User::where('level','!=',0)->get();
+        $countUsers = $users->count();
+       $employees = employees::all();
+       $countEe = $employees->count();
+       $employers =employers::all();
+       $countEr = $employers->count();
+       $applies = applies::all();
+       $countApplies = $applies->count();
+
+        return view('admin.indexAdmin',compact('countUsers','countEe','countEr','countApplies'));
     }
 
     function logoutAdmin(Request $request)

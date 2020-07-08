@@ -43,20 +43,13 @@
                             <small id="helpId" class="form-text text-danger error errorEmail">
                             </small>
                         </div>
-                        <div class="form-inline ">
-                            <label for="" class="col-md-3"> Bạn là một <span class="text-danger">*</span></label>
-                            <div class=" col-md-9 ">
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="employee" name="editlevel" class="custom-control-input" value="1" checked>
-                                    <label class="custom-control-label" for="employee">Người tìm việc</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="employer" name="editlevel" class="custom-control-input" value="2">
-                                    <label class="custom-control-label" for="employer">Nhà tuyển dụng </label>
-                                </div>
-                            </div>
-                            {{-- form check phân quyền user --}}
+                        <div class="form-group">
+                            <label for="uname1">Password</label>
+                            <input type="text" class="form-control " name="editpassord" id="editpassord">
+                            <small id="helpId" class="form-text text-danger error errorEmail">
+                            </small>
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

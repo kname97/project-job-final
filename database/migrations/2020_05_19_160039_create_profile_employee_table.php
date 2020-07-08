@@ -17,8 +17,7 @@ class CreateProfileEmployeeTable extends Migration
             $table->bigIncrements('id');
             $table->string('lastname')->nullable();
             $table->string('firstname')->nullable();
-            $table->string('avartar')->nullable();
-            $table->string('cover')->nullable();
+            $table->string('avatar')->nullable();
             $table->enum('gender',['nam','nữ','không xác định'])->default('không xác định');
             $table->date('dob')->nullable();
             $table->longText('description')->nullable();
@@ -27,7 +26,7 @@ class CreateProfileEmployeeTable extends Migration
             $table->string('city')->nullable();
             $table->string('district')->nullable();
             $table->string('tag_skill')->nullable();
-            $table->string('hobby')->nullable();
+//            $table->string('hobby')->nullable();
             $table->string('university')->nullable();
             $table->integer('user_id');
             $table->timestamps();

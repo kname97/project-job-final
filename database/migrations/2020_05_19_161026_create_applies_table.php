@@ -15,7 +15,8 @@ class CreateAppliesTable extends Migration
     {
         Schema::create('applies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('employee_id');
+            $table->integer('user_id');
+            $table->string('status')->default(0);
             $table->integer('job_id');
             $table->timestamps();
         });
